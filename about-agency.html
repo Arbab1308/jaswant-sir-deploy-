@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Agency | Pixel Vision Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body class="about-page" data-lenis-profile="buttery">
+
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="index.html#home" class="nav-logo" style="text-decoration:none;">
+                <!-- ─── CAMERA MASCOT (AS LOGO) ─── -->
+                <div class="camera-mascot logo-mascot" id="cameraMascot">
+                    <svg viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="18" width="120" height="34" fill="white" stroke="black" stroke-width="1.5"/>
+                        <rect x="10" y="68" width="120" height="34" fill="white" stroke="black" stroke-width="1.5"/>
+                        <rect x="85" y="3" width="30" height="10" fill="white" stroke="black" stroke-width="1.5"/>
+                        <circle cx="118" cy="30" r="3" fill="black"/>
+                        <g class="eyes-container">
+                            <circle cx="45" cy="55" r="24" fill="white" stroke="black" stroke-width="1.5"/>
+                            <circle cx="95" cy="55" r="24" fill="white" stroke="black" stroke-width="1.5"/>
+                            <g class="pupil-wrap" id="pupilLeftWrap">
+                                <circle cx="45" cy="55" r="11" fill="black" class="pupil" id="pupilLeft"/>
+                            </g>
+                            <g class="pupil-wrap" id="pupilRightWrap">
+                                <circle cx="95" cy="55" r="11" fill="black" class="pupil" id="pupilRight"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Projects</a>
+                <a href="#" class="nav-link">Albums</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link active">Services</a>
+                <a href="#" class="nav-link">Blogs</a>
+                <a href="#" class="nav-link">Contact</a>
+            </div>
+
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <a href="#" class="get-template-btn">Get Template</a>
+        </div>
+    </nav>
+
+    <section class="about-agency-hero">
+        <div class="hero-bg-wrapper">
+            <img class="hero-bg-img" src="assets/about-agency.jpg" alt="About Our Agency">
+            <div class="hero-fade-overlay"></div>
+        </div>
+        <div class="hero-content-left">
+            <h1 class="hero-title">About Us</h1>
+            <p class="hero-subtitle">Discover the Team That Adds a Dose of Fun to Video Production. This Is Us, the StoryStream Family, where passion meets pixels with a smile!</p>
+        </div>
+    </section>
+
+    <section class="about-agency-textual">
+        <div class="textual-container">
+            <div class="textual-left">
+                <h2 class="textual-title">About Our Agency</h2>
+            </div>
+            <div class="textual-right">
+                <p class="para-lead">
+                    Welcome to <strong>Pixel Vision</strong>, your premier production company specializing in <strong>photography, videography, drone services, VFX, and editing</strong>. With years of experience in the industry, we pride ourselves on delivering <strong>top-notch visual content</strong> that <strong>captivates and engages</strong>.
+                </p>
+                
+                <p class="para-body">
+                    Our team comprises seasoned professionals, including scriptwriters, directors, cinematographers, music producers, and photographers, all dedicated to bringing your vision to life. Our team has been working nationally and our travel fanatics!
+                </p>
+
+                <div class="agency-stats-grid">
+                    <div class="agency-stat-card">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">YEARS OF EXPERIENCE</span>
+                    </div>
+                    <div class="agency-stat-card">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">REPEATED CLIENTS</span>
+                    </div>
+                    <div class="agency-stat-card">
+                        <span class="stat-number">478</span>
+                        <span class="stat-label">COMPLETED PROJECTS</span>
+                    </div>
+                    <div class="agency-stat-card">
+                        <span class="stat-number">350+</span>
+                        <span class="stat-label">HAPPY CLIENTS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="creative-capsule-section">
+        <div class="capsule-container">
+            <div class="capsule-content">
+                <h2 class="capsule-text">
+                    At <strong>Pixel Vision</strong>, we combine <span class="dim">artistic flair with precision to tell</span> <strong>compelling stories</strong>. <br>Your <strong>vision</strong> is our <strong>mission</strong>.
+                </h2>
+            </div>
+            
+            <div class="capsule-carousel" id="capsuleCarousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Standard items -->
+                    <div class="carousel-item"><img src="assets/bg2.png" alt="C1"></div>
+                    <div class="carousel-item shrink"><img src="assets/bg3.png" alt="C2"></div>
+                    <div class="carousel-item"><img src="assets/jaswant.jpg" alt="C3"></div>
+                    <div class="carousel-item shrink"><img src="assets/about.jpg" alt="C4"></div>
+                    <div class="carousel-item"><img src="assets/services/corporate.jpg" alt="C5"></div>
+                    <div class="carousel-item shrink"><img src="assets/services/fashion.jpg" alt="C6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="visions-section">
+        <div class="visions-container">
+            <h2 class="visions-main-title">How we create your visions</h2>
+            
+            <!-- Vision Item 1 -->
+            <div class="vision-item">
+                <span class="vision-number">01</span>
+                <div class="vision-content">
+                    <h3 class="vision-title">Creativity</h3>
+                    <p class="vision-desc">We believe in the power of imagination and creative thinking. We strive to infuse innovation and originality into everything we do, producing unique and captivating video content.</p>
+                </div>
+            </div>
+
+            <!-- Vision Item 2 -->
+            <div class="vision-item">
+                <span class="vision-number">02</span>
+                <div class="vision-content">
+                    <h3 class="vision-title">Quality</h3>
+                    <p class="vision-desc">Excellence is non-negotiable. We are committed to delivering top-notch video production services that meet and exceed our clients' expectations, from concept to final product.</p>
+                </div>
+            </div>
+
+            <!-- Vision Item 3 -->
+            <div class="vision-item">
+                <span class="vision-number">03</span>
+                <div class="vision-content">
+                    <h3 class="vision-title">Collaboration</h3>
+                    <p class="vision-desc">We value teamwork and collaboration. We work closely with our clients, understanding their vision and goals, to ensure that every project is a true collaboration resulting in success.</p>
+                </div>
+            </div>
+
+            <!-- Vision Item 4 -->
+            <div class="vision-item">
+                <span class="vision-number">04</span>
+                <div class="vision-content">
+                    <h3 class="vision-title">Integrity</h3>
+                    <p class="vision-desc">Trust and honesty are at the heart of our agency. We maintain the highest ethical standards in all our interactions, ensuring transparency, reliability, and long-lasting relationships with our clients and partners.</p>
+                </div>
+            </div>
+        </div>
+    <section class="team-section">
+        <div class="team-container">
+            <h2 class="team-main-title">Peek Behind the Curtain: Meet Our Fantastic Team!</h2>
+            
+            <div class="team-grid">
+                <!-- Team Card 1 -->
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="assets/team-1.png" alt="John Davis">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">John Davis</h3>
+                        <p class="team-role">CREATIVE DIRECTOR</p>
+                        
+                        <div class="team-socials">
+                            <a href="#" class="team-social-pill">
+                                <div class="pill-left">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                    <span>LINKEDIN</span>
+                                </div>
+                                <span class="pill-arrow">&rarr;</span>
+                            </a>
+                            <a href="#" class="team-social-pill">
+                                <div class="pill-left">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                    <span>INSTAGRAM</span>
+                                </div>
+                                <span class="pill-arrow">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Card 2 -->
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="assets/team-2.png" alt="Michael Carter">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Michael Carter</h3>
+                        <p class="team-role">CINEMATOGRAPHER</p>
+                        
+                        <div class="team-socials">
+                            <a href="#" class="team-social-pill">
+                                <div class="pill-left">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                    <span>LINKEDIN</span>
+                                </div>
+                                <span class="pill-arrow">&rarr;</span>
+                            </a>
+                            <a href="#" class="team-social-pill">
+                                <div class="pill-left">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                    <span>INSTAGRAM</span>
+                                </div>
+                                <span class="pill-arrow">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Card 3 -->
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="assets/team-3.png" alt="David Smith">
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">David Smith</h3>
+                        <p class="team-role">VIDEO EDITOR</p>
+                        
+                        <div class="team-socials">
+                            <a href="#" class="team-social-pill">
+                                <div class="pill-left">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                    <span>LINKEDIN</span>
+                                </div>
+                                <span class="pill-arrow">&rarr;</span>
+                            </a>
+                            <a href="#" class="team-social-pill">
+                                <div class="pill-left">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                    <span>INSTAGRAM</span>
+                                </div>
+                                <span class="pill-arrow">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands-section">
+        <div class="brands-container">
+            <h2 class="brands-main-title">Our Creative Playground: Where Brands Shine!</h2>
+            
+            <div class="brands-box">
+                <!-- Column 1 (Up) -->
+                <div class="logo-column" data-direction="up">
+                    <div class="logo-track">
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-258.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-259.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-260.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-261.svg" alt="Brand"></div>
+                        <!-- Duplicates for seamless loop -->
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-258.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-259.svg" alt="Brand"></div>
+                    </div>
+                </div>
+
+                <!-- Column 2 (Down) -->
+                <div class="logo-column" data-direction="down">
+                    <div class="logo-track">
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-262.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-263.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-264.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-265.svg" alt="Brand"></div>
+                        <!-- Duplicates -->
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-262.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-263.svg" alt="Brand"></div>
+                    </div>
+                </div>
+
+                <!-- Column 3 (Up) -->
+                <div class="logo-column" data-direction="up">
+                    <div class="logo-track">
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-211.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-212.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-213.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-214.svg" alt="Brand"></div>
+                        <!-- Duplicates -->
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-211.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-212.svg" alt="Brand"></div>
+                    </div>
+                </div>
+
+                <!-- Column 4 (Down) -->
+                <div class="logo-column" data-direction="down">
+                    <div class="logo-track">
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-215.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-216.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-217.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-218.svg" alt="Brand"></div>
+                        <!-- Duplicates -->
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-215.svg" alt="Brand"></div>
+                        <div class="logo-item"><img src="https://logoipsum.com/assets/all-logos/logoipsum-216.svg" alt="Brand"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="work-process-section">
+        <div class="work-process-container">
+            <div class="work-text-content">
+                <h2 class="work-title">How We Work</h2>
+                <div class="work-paragraphs">
+                    <p class="para-story">At StoryStream, we're all about making the creative process feel like a breeze on a sunny day. We start by diving headfirst into your ideas, and then we sprinkle our creative magic like confetti at a party.</p>
+                    
+                    <h3 class="work-emphasis">We keep you in the loop every step of the way because, after all, <span class="highlight">it's your show!</span></h3>
+                    
+                    <p class="para-story">We're the team that turns 'work' into 'wow,' and we do it with smiles, laughter, and a touch of video wizardry. So, grab your popcorn, because this creative journey is going to be a blast!</p>
+                    
+                    <p class="para-story">We'll tap into our creative talents, dust off our brainstorming hats, and make sure that the journey from concept to creation is a toe-tapping, smile-inducing experience. Together, we'll create video magic that's not only effective but also unforgettable. Ready to dance to the beat of your story? Let's get started!</p>
+                </div>
+            </div>
+            
+            <div class="work-image-wrapper">
+                <img src="assets/how-we-work.png" alt="Our Creative Process" class="parallax-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Content sections would go here (similar to about.html) -->
+    <!-- For now, we will just show the hero as requested -->
+
+    <section class="testimonials-section">
+        <div class="testimonials-bg">
+            <img src="assets/testimonials.jpg" alt="Testimonials Background">
+            <div class="testimonials-overlay"></div>
+        </div>
+
+        <div class="testimonials-wrapper">
+            <div class="testimonials-header">
+                <h2 class="testimonials-title">Our Client Chronicles:<br>Stories that Make Us Smile!</h2>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonials-container" id="testimonialsContainer">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-brand">
+                            <div class="brand-logo">
+                                <svg viewBox="0 0 160 40" fill="white">
+                                    <circle cx="20" cy="20" r="12" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M15 20h10M20 15v10" stroke="currentColor" stroke-width="2"/>
+                                    <text x="45" y="27" font-family="Syne" font-size="18" font-weight="700">Logoipsum</text>
+                                </svg>
+                            </div>
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14.017 21L14.017 18C14.017 16.899 14.916 16 16.017 16H19.017V12H15.017C13.911 12 13.017 11.106 13.017 10V6C13.017 4.894 13.911 4 15.017 4H19.017C20.123 4 21.017 4.894 21.017 6V10C21.017 10.5 20.8 11 20.44 11.36C20.08 11.72 19.5 12 19.017 12V16C21.226 16 23.017 17.791 23.017 20V21H14.017ZM3 21L3 18C3 16.899 3.899 16 5 16H8V12H4C2.894 12 2 11.106 2 10V6C2 4.894 2.894 4 4 4H8C9.106 4 10 4.894 10 6V10C10 10.5 9.78 11 9.42 11.36C9.06 11.72 8.48 12 8 12V16C10.209 16 12 17.791 12 20V21H3Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"We are thrilled with our new corporate videos. The team was incredibly calm, patient, and fostered a pleasant atmosphere. Everything came together seamlessly! We wholeheartedly endorse and would recommend them anytime."</p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-brand">
+                            <div class="brand-logo">
+                                <svg viewBox="0 0 160 40" fill="white">
+                                    <rect x="5" y="10" width="30" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <text x="45" y="27" font-family="Syne" font-size="18" font-weight="700">BRANDCO</text>
+                                </svg>
+                            </div>
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14.017 21L14.017 18C14.017 16.899 14.916 16 16.017 16H19.017V12H15.017C13.911 12 13.017 11.106 13.017 10V6C13.017 4.894 13.911 4 15.017 4H19.017C20.123 4 21.017 4.894 21.017 6V10C21.017 10.5 20.8 11 20.44 11.36C20.08 11.72 19.5 12 19.017 12V16C21.226 16 23.017 17.791 23.017 20V21H14.017ZM3 21L3 18C3 16.899 3.899 16 5 16H8V12H4C2.894 12 2 11.106 2 10V6C2 4.894 2.894 4 4 4H8C9.106 4 10 4.894 10 6V10C10 10.5 9.78 11 9.42 11.36C9.06 11.72 8.48 12 8 12V16C10.209 16 12 17.791 12 20V21H3Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"The urban chronicles project was a huge success. Their attention to detail and ability to capture the soul of the city was remarkable. We look forward to many more collaborations."</p>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-brand">
+                            <div class="brand-logo">
+                                <svg viewBox="0 0 160 40" fill="white">
+                                    <path d="M10 30L25 10L40 30H10Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <text x="50" y="27" font-family="Syne" font-size="18" font-weight="700">Artisan</text>
+                                </svg>
+                            </div>
+                            <div class="quote-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14.017 21L14.017 18C14.017 16.899 14.916 16 16.017 16H19.017V12H15.017C13.911 12 13.017 11.106 13.017 10V6C13.017 4.894 13.911 4 15.017 4H19.017C20.123 4 21.017 4.894 21.017 6V10C21.017 10.5 20.8 11 20.44 11.36C20.08 11.72 19.5 12 19.017 12V16C21.226 16 23.017 17.791 23.017 20V21H14.017ZM3 21L3 18C3 16.899 3.899 16 5 16H8V12H4C2.894 12 2 11.106 2 10V6C2 4.894 2.894 4 4 4H8C9.106 4 10 4.894 10 6V10C10 10.5 9.78 11 9.42 11.36C9.06 11.72 8.48 12 8 12V16C10.209 16 12 17.791 12 20V21H3Z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Working with Jaswant was an absolute pleasure. His creative vision and high-end results transformed our fashion campaign into something truly cinematic."</p>
+                    </div>
+                </div>
+
+                <div class="testimonials-nav">
+                    <button class="nav-btn prev-btn" id="prevTestimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="nav-btn next-btn" id="nextTestimonial">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer Region -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Top CTA Box -->
+            <div class="footer-cta-box">
+                <img src="assets/logo.png" alt="StoryStream Logo" class="footer-logo">
+                <h2 class="footer-headline">Not limited to video,<br>we're your creative comrades.</h2>
+                <p class="footer-subhead">Got questions, project ideas, or just want to say hi? We're all ears!</p>
+                <a href="#" class="footer-cta-btn">
+                    Let's Collaborate 
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Middle Info Grid -->
+            <div class="footer-info-grid">
+                <!-- Left Box -->
+                <div class="footer-info-box contact-box">
+                    <p><strong>Address:</strong> 123 Artistic Lane, Suite 302, NY, USA M5V 1A1</p>
+                    <p><strong>Email:</strong> contact@storystream.com</p>
+                    <p><strong>Phone:</strong> (416) 555-1234</p>
+                    <p><strong>Business Hours:</strong> Sunday - Thursday : 9am to 5pm</p>
+                    
+                    <div class="newsletter-wrap">
+                        <label>Subscribe to our newsletter</label>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="name@email.com" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Box -->
+                <div class="footer-info-box links-box">
+                    <div class="link-column">
+                        <h4>Quick Links</h4>
+                        <a href="index.html">HOME</a>
+                        <a href="#">PROJECTS</a>
+                        <a href="#">PROJECTS SIMPLIFIED</a>
+                        <a href="about.html">ABOUT</a>
+                        <a href="#" class="active">SERVICES</a>
+                        <a href="#">CONTACT</a>
+                    </div>
+                    <div class="link-column">
+                        <h4>Legal</h4>
+                        <a href="#">PRIVACY POLICY</a>
+                        <a href="#">TERMS & CONDITIONS</a>
+                        <a href="#">REFUND POLICY</a>
+                        
+                        <h4 class="mt-4">Social Medias</h4>
+                        <a href="#">FACEBOOK</a>
+                        <a href="#">VIMEO</a>
+                        <a href="#">TIKTOK</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Grid -->
+            <div class="footer-social-grid">
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                    TWITTER
+                    <span class="arrow">&rarr;</span>
+                </a>
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg>
+                    YOUTUBE
+                    <span class="arrow">&rarr;</span>
+                </a>
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    LINKEDIN
+                    <span class="arrow">&rarr;</span>
+                </a>
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    INSTAGRAM
+                    <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer-copy-bar">
+                <p>&copy;Template by RealMehedi</p>
+                <div class="built-in">
+                    <p>Built in Framer</p>
+                    <span class="framer-badge">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 5px; margin-top: -2px;"><path d="M12 2L2 12l10 10 10-10L12 2zm0 4.8l5.2 5.2-5.2 5.2L6.8 12 12 6.8z"/></svg>
+                        Made in Framer
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

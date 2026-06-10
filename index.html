@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videohut | Hero & Showreel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" style="text-decoration:none;">
+                <!-- ─── CAMERA MASCOT (AS LOGO) ─── -->
+                <div class="camera-mascot logo-mascot" id="cameraMascot">
+                    <svg viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="18" width="120" height="34" fill="white" stroke="black" stroke-width="1.5"/>
+                        <rect x="10" y="68" width="120" height="34" fill="white" stroke="black" stroke-width="1.5"/>
+                        <rect x="85" y="3" width="30" height="10" fill="white" stroke="black" stroke-width="1.5"/>
+                        <circle cx="118" cy="30" r="3" fill="black"/>
+                        <g class="eyes-container">
+                            <circle cx="45" cy="55" r="24" fill="white" stroke="black" stroke-width="1.5"/>
+                            <circle cx="95" cy="55" r="24" fill="white" stroke="black" stroke-width="1.5"/>
+                            <g class="pupil-wrap" id="pupilLeftWrap">
+                                <circle cx="45" cy="55" r="11" fill="black" class="pupil" id="pupilLeft"/>
+                            </g>
+                            <g class="pupil-wrap" id="pupilRightWrap">
+                                <circle cx="95" cy="55" r="11" fill="black" class="pupil" id="pupilRight"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">Projects</a>
+                <a href="#" class="nav-link">Albums</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">Blogs</a>
+                <a href="#" class="nav-link">Contact</a>
+            </div>
+
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <a href="#" class="get-template-btn">Get Template</a>
+        </div>
+    </nav>
+
+    <section class="hero-section" id="home">
+        <img class="hero-image-bg" src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2000&auto=format&fit=crop" alt="Hero Background">
+        <div class="hero-overlay-gradient"></div>
+        <canvas class="noise-overlay" id="noiseCanvas"></canvas>
+        <div class="hero-content-center">
+            <h1 class="hero-main-title">Turning Video into Vibrant<br>Conversations.</h1>
+            <p class="hero-subtitle">We're your friendly video wizards creating fantastic<br>commercials, corporate videos, social ads and many more.</p>
+            <a href="#" class="hero-cta-btn">Let's Work Together</a>
+        </div>
+    </section>  </section>
+
+
+
+
+    <!-- Main Content Wrapper to overlap Hero folding -->
+    <main class="main-content-wrapper">
+
+    <!-- Brand Partners Marquee -->
+    <section class="brand-marquee-section">
+        <h3 class="brand-heading">Standing Tall with Our Esteemed Brand Partners</h3>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <!-- First set -->
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="22" font-family="Arial" font-size="16" font-weight="bold" letter-spacing="3">LOGOIPSUM</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 100 30" fill="white"><text x="5" y="24" font-family="Georgia" font-size="22" font-weight="bold">ロゴ</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><circle cx="12" cy="15" r="8" fill="none" stroke="white" stroke-width="2"/><text x="26" y="21" font-family="Arial" font-size="14" letter-spacing="2">LOGOIPSUM</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 100 30" fill="white"><text x="5" y="24" font-family="serif" font-size="22" font-weight="bold">标识</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><circle cx="16" cy="15" r="10" fill="white" opacity="0.3"/><text x="32" y="21" font-family="Arial" font-size="14">Logoipsum</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="21" font-family="Arial" font-size="14">logo</text><text x="40" y="21" font-family="Arial" font-size="14" fill="#FF6A3D">♥</text><text x="58" y="21" font-family="Arial" font-size="14">ipsum</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><rect x="0" y="5" width="20" height="20" rx="4" fill="none" stroke="white" stroke-width="2"/><text x="28" y="21" font-family="Arial" font-size="13" font-weight="600" letter-spacing="1">BRANDCO</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><text x="0" y="22" font-family="Georgia" font-size="16" font-style="italic">Artisan Studio</text></svg></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="22" font-family="Arial" font-size="16" font-weight="bold" letter-spacing="3">LOGOIPSUM</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 100 30" fill="white"><text x="5" y="24" font-family="Georgia" font-size="22" font-weight="bold">ロゴ</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><circle cx="12" cy="15" r="8" fill="none" stroke="white" stroke-width="2"/><text x="26" y="21" font-family="Arial" font-size="14" letter-spacing="2">LOGOIPSUM</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 100 30" fill="white"><text x="5" y="24" font-family="serif" font-size="22" font-weight="bold">标识</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><circle cx="16" cy="15" r="10" fill="white" opacity="0.3"/><text x="32" y="21" font-family="Arial" font-size="14">Logoipsum</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="21" font-family="Arial" font-size="14">logo</text><text x="40" y="21" font-family="Arial" font-size="14" fill="#FF6A3D">♥</text><text x="58" y="21" font-family="Arial" font-size="14">ipsum</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><rect x="0" y="5" width="20" height="20" rx="4" fill="none" stroke="white" stroke-width="2"/><text x="28" y="21" font-family="Arial" font-size="13" font-weight="600" letter-spacing="1">BRANDCO</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><text x="0" y="22" font-family="Georgia" font-size="16" font-style="italic">Artisan Studio</text></svg></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Our Agency -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-top">
+                <div class="about-left">
+                    <h2 class="about-title">About Our Agency</h2>
+                </div>
+                <div class="about-right">
+                    <p class="about-lead">Established in 2015, we have dedicated ourselves to <strong>crafting captivating visual narratives</strong> defined by creativity, innovation, and an unwavering commitment to <strong>excellence in video production.</strong></p>
+                    <p class="about-body">Our mission is clear: to transform ideas into compelling visual stories. We believe that every project is an opportunity to create something extraordinary. Whether it's a corporate video, a commercial, an event coverage, or an animation, we approach each endeavor with creativity, enthusiasm, and a commitment to exceeding our clients' expectations.</p>
+                    <a href="about-agency.html" class="agency-cta">Discover More</a>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">YEARS OF EXPERIENCE</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">REPEATED CLIENTS</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3K+</span>
+                    <span class="stat-label">COMPLETED PROJECTS</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">99%</span>
+                    <span class="stat-label">HAPPY CLIENTS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder-section">
+        <div class="founder-parallax-wrap">
+            <img class="founder-image" src="assets/jaswant.jpg" alt="Mr. Jaswant - Founder">
+            <canvas class="noise-overlay" id="founderNoiseCanvas"></canvas>
+        </div>
+        <div class="founder-overlay">
+            <span class="founder-tag">FOUNDER</span>
+            <h2 class="founder-name">Mr. Jaswant</h2>
+            <p class="founder-bio">Hello, I'm Jaswant, a passionate visual storyteller specializing in cinematography, video editing, and VFX. My journey began in the 6th grade, sparking a lifelong passion for capturing the world through my lens.</p>
+            <a href="about.html" class="founder-cta">About Me</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Intro Section -->
+    <section class="portfolio-intro">
+        <div class="portfolio-bg-wrapper">
+            <img class="portfolio-bg-img" src="assets/about.jpg" alt="Portfolio Background">
+            <canvas class="noise-overlay" id="portfolioNoiseCanvas"></canvas>
+            <div class="portfolio-bg-overlay"></div>
+        </div>
+        <div class="portfolio-content">
+            <h2 class="portfolio-title">PORTFOLIO</h2>
+            <p class="portfolio-subtitle">From coming up with creative concepts to delivering outstanding campaigns, we're your friendly, fun-loving crew ready to turn your project dreams into reality!</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="portfolio-grid-section">
+        <div class="portfolio-cards-container">
+            <!-- Card 1 -->
+            <div class="portfolio-card" data-video-id="HRT9hZoIwAE">
+                <div class="video-wrapper">
+                    <div class="yt-player" id="player-1"></div>
+                    <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/HRT9hZoIwAE/maxresdefault.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="meta-prefix">/ CINEMATOGRAPHY</span>
+                        <span class="meta-date">JAN 15, 2024</span>
+                    </div>
+                    <h3 class="card-title">VISIONARY CREATIONS FLOW</h3>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="portfolio-card" data-video-id="VKGNKnKU5mI">
+                <div class="video-wrapper">
+                    <div class="yt-player" id="player-2"></div>
+                    <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/VKGNKnKU5mI/maxresdefault.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="meta-prefix">/ EDITING</span>
+                        <span class="meta-date">FEB 02, 2024</span>
+                    </div>
+                    <h3 class="card-title">URBAN EXPLORATION SERIES</h3>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="portfolio-card" data-video-id="0jTBo6aMXW0">
+                <div class="video-wrapper">
+                    <div class="yt-player" id="player-3"></div>
+                    <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/0jTBo6aMXW0/maxresdefault.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="meta-prefix">/ VFX</span>
+                        <span class="meta-date">MAR 10, 2024</span>
+                    </div>
+                    <h3 class="card-title">ABSTRACT NARRATIVE VOL 1</h3>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="portfolio-card" data-video-id="rkWQwSSdyBQ">
+                <div class="video-wrapper">
+                    <div class="yt-player" id="player-4"></div>
+                    <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/rkWQwSSdyBQ/maxresdefault.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="meta-prefix">/ COMMERCIAL</span>
+                        <span class="meta-date">APR 22, 2024</span>
+                    </div>
+                    <h3 class="card-title">MODERN BRAND STORY</h3>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="portfolio-card" data-video-id="kMaKV87JN4s">
+                <div class="video-wrapper">
+                    <div class="yt-player" id="player-5"></div>
+                    <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/kMaKV87JN4s/maxresdefault.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="meta-prefix">/ NARRATIVE</span>
+                        <span class="meta-date">MAY 05, 2024</span>
+                    </div>
+                    <h3 class="card-title">THE SILENT WHISPER</h3>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="portfolio-card" data-video-id="jhiEYmNKXC8">
+                <div class="video-wrapper">
+                    <div class="yt-player" id="player-6"></div>
+                    <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/jhiEYmNKXC8/maxresdefault.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="meta-prefix">/ CINEMATOGRAPHY</span>
+                        <span class="meta-date">JUN 18, 2024</span>
+                    </div>
+                    <h3 class="card-title">DUSK TILL DAWN REEL</h3>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="portfolio-card" data-video-id="LtTUp11V-Ko">
+                <div class="video-wrapper">
+                    <div class="yt-player" id="player-7"></div>
+                    <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/LtTUp11V-Ko/maxresdefault.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="meta-prefix">/ CORPORATE</span>
+                        <span class="meta-date">JUL 12, 2024</span>
+                    </div>
+                    <h3 class="card-title">TECH HORIZONS 2024</h3>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="portfolio-card" data-video-id="9ZmtQy50hoc">
+                <div class="video-wrapper">
+                    <div class="yt-player" id="player-8"></div>
+                    <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/9ZmtQy50hoc/maxresdefault.jpg');"></div>
+                </div>
+                <div class="card-info">
+                    <div class="card-meta">
+                        <span class="meta-prefix">/ SOCIAL ADS</span>
+                        <span class="meta-date">AUG 30, 2024</span>
+                    </div>
+                    <h3 class="card-title">SUMMER CAMPAIGN TEASER</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Reels Section -->
+    <section class="reels-section">
+
+        <!-- Banner Header: left title + right image (like Portfolio intro) -->
+        <div class="reels-banner">
+            <div class="reels-banner-content">
+                <h2 class="reels-title">SOCIAL MEDIA <span>REELS</span></h2>
+                <p class="reels-subtitle">Scroll-stopping content crafted<br>for every platform.</p>
+            </div>
+            <div class="reels-banner-img-wrap">
+                <img class="reels-banner-img" src="assets/about.jpg" alt="Social Media Reels">
+                <div class="reels-banner-overlay"></div>
+            </div>
+        </div>
+
+        <!-- 6-Column Static Grid -->
+        <div class="reels-grid" id="reelsGrid">
+
+            <!-- Column 1 -->
+            <div class="reels-column">
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-110.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-292.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="reels-column">
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-626.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-686.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="reels-column">
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-910.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-41.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="reels-column">
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-729.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-110.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+            </div>
+
+            <!-- Column 5 -->
+            <div class="reels-column">
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-292.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-626.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+            </div>
+
+            <!-- Column 6 -->
+            <div class="reels-column">
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-686.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+                <div class="reel-item" tabindex="0">
+                    <video src="assets/reels/Video-910.mp4" autoplay loop muted playsinline controls></video>
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+
+        <!-- Expanded Overlay (click-to-expand backdrop) -->
+        <div class="reel-expanded-overlay" id="reelOverlay"></div>
+    </section>
+
+    <!-- ─── SERVICES SECTION ─── -->
+    <section class="services-section">
+        <div class="services-header">
+            <h2 class="services-title">OUR <span>SERVICES</span></h2>
+            <p class="services-subtitle">Comprehensive video production and creative solutions tailored for your brand.</p>
+        </div>
+
+        <div class="services-list">
+            <a href="corporate-films.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
+                <div class="service-item" data-bg="corporate.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/corporate.jpg')"></div>
+                    <div class="service-content">
+                        <span class="service-number">01</span>
+                        <h3 class="service-name">Corporate Films</h3>
+                        <p class="service-desc">Professional storytelling that elevates your brand identity and corporate communication.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="music-videos.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
+                <div class="service-item" data-bg="music-videos.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/music-videos.jpg')"></div>
+                    <div class="service-content">
+                        <span class="service-number">02</span>
+                        <h3 class="service-name">Music Videos</h3>
+                        <p class="service-desc">Visually stunning cinematic experiences that bring musical vision to life.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="fashion-commercial.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
+                <div class="service-item" data-bg="fashion.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/fashion.jpg')"></div>
+                    <div class="service-content">
+                        <span class="service-number">03</span>
+                        <h3 class="service-name">Fashion & Commercial</h3>
+                        <p class="service-desc">High-end visual marketing campaigns that capture style and influence.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="social-media-content.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
+                <div class="service-item" data-bg="social media.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/social media.jpg')"></div>
+                    <div class="service-content">
+                        <span class="service-number">04</span>
+                        <h3 class="service-name">Social Media Content</h3>
+                        <p class="service-desc">Engaging, scroll-stopping reels and shorts designed for digital growth.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="podcast-production.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
+                <div class="service-item" data-bg="podcast.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/podcast.jpg')"></div>
+                    <div class="service-content">
+                        <span class="service-number">05</span>
+                        <h3 class="service-name">Podcast Production</h3>
+                        <p class="service-desc">Multi-cam recording and professional post-production for audio-visual podcasts.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+
+            <a href="event-coverage.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
+                <div class="service-item" data-bg="events.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/events.jpg')"></div>
+                    <div class="service-content">
+                        <span class="service-number">06</span>
+                        <h3 class="service-name">Event Coverage</h3>
+                        <p class="service-desc">Dynamic documentation of live events, conferences, and exhibitions.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Premium Footer Region -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Top CTA Box -->
+            <div class="footer-cta-box">
+                <img src="assets/logo.png" alt="StoryStream Logo" class="footer-logo">
+                <h2 class="footer-headline">Not limited to video,<br>we're your creative comrades.</h2>
+                <p class="footer-subhead">Got questions, project ideas, or just want to say hi? We're all ears!</p>
+                <a href="#" class="footer-cta-btn">
+                    Let's Collaborate 
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Middle Info Grid -->
+            <div class="footer-info-grid">
+                <!-- Left Box -->
+                <div class="footer-info-box contact-box">
+                    <p><strong>Address:</strong> 123 Artistic Lane, Suite 302, NY, USA M5V 1A1</p>
+                    <p><strong>Email:</strong> contact@storystream.com</p>
+                    <p><strong>Phone:</strong> (416) 555-1234</p>
+                    <p><strong>Business Hours:</strong> Sunday - Thursday : 9am to 5pm</p>
+                    
+                    <div class="newsletter-wrap">
+                        <label>Subscribe to our newsletter</label>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="name@email.com" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Box -->
+                <div class="footer-info-box links-box">
+                    <div class="link-column">
+                        <h4>Quick Links</h4>
+                        <a href="#home" class="active">HOME</a>
+                        <a href="#">PROJECTS</a>
+                        <a href="#">PROJECTS SIMPLIFIED</a>
+                        <a href="about.html">ABOUT</a>
+                        <a href="#">SERVICES</a>
+                        <a href="#">CONTACT</a>
+                    </div>
+                    <div class="link-column">
+                        <h4>Legal</h4>
+                        <a href="#">PRIVACY POLICY</a>
+                        <a href="#">TERMS & CONDITIONS</a>
+                        <a href="#">REFUND POLICY</a>
+                        
+                        <h4 class="mt-4">Social Medias</h4>
+                        <a href="#">FACEBOOK</a>
+                        <a href="#">VIMEO</a>
+                        <a href="#">TIKTOK</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Grid -->
+            <div class="footer-social-grid">
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                    TWITTER
+                    <span class="arrow">&rarr;</span>
+                </a>
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg>
+                    YOUTUBE
+                    <span class="arrow">&rarr;</span>
+                </a>
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    LINKEDIN
+                    <span class="arrow">&rarr;</span>
+                </a>
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    INSTAGRAM
+                    <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer-copy-bar">
+                <p>&copy;Template by RealMehedi</p>
+                <div class="built-in">
+                    <p>Built in Framer</p>
+                    <span class="framer-badge">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 5px; margin-top: -2px;"><path d="M12 2L2 12l10 10 10-10L12 2zm0 4.8l5.2 5.2-5.2 5.2L6.8 12 12 6.8z"/></svg>
+                        Made in Framer
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
