@@ -266,7 +266,7 @@ body {
 
 .hero-main-title {
   font-family: var(--font-heading);
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
   font-weight: 700;
   color: white;
   line-height: 1.1;
@@ -276,23 +276,23 @@ body {
 
 .hero-subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin-bottom: 50px;
-  max-width: 700px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .hero-cta-btn {
   display: inline-block;
-  padding: 16px 40px;
+  padding: 18px 45px;
   background: linear-gradient(115deg, #ff6a3d 0%, #ff9e2a 40%, #2a8d88 100%);
   color: white;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-decoration: none;
   border-radius: 40px;
   border: 1px solid rgba(255, 255, 255, 0.3);
