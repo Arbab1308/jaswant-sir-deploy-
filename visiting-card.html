@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Vision - Premium Visiting Card</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #aaaaaa;
+            --accent-gold: linear-gradient(135deg, #c5a880 0%, #e6d5b8 50%, #b39266 100%);
+            --accent-gold-solid: #c5a880;
+            --card-width: 630px;
+            --card-height: 360px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            background: var(--accent-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* 3D Card Container */
+        .card-container {
+            perspective: 1200px;
+            width: var(--card-width);
+            height: var(--card-height);
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            border-radius: 16px;
+        }
+
+        .card-container:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Card Sides */
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(197, 168, 128, 0.15);
+            background-color: var(--card-bg);
+        }
+
+        /* Subtle luxury texture */
+        .card-front::after, .card-back::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.02) 0%, transparent 80%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Front Side styling */
+        .card-front {
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1c1c1c 0%, #0e0e0e 100%);
+        }
+
+        .logo-wrap {
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        .logo-img {
+            max-height: 80px;
+            width: auto;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+        }
+
+        .company-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            background: var(--accent-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            z-index: 2;
+        }
+
+        .company-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 400;
+            z-index: 2;
+        }
+
+        .card-border-gold {
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            right: 5%;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 3px 3px 0 0;
+        }
+
+        /* Back Side styling */
+        .card-back {
+            transform: rotateY(180deg);
+            padding: 40px;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+            background: linear-gradient(135deg, #161616 0%, #0c0c0c 100%);
+        }
+
+        .card-back-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.1);
+            padding-bottom: 15px;
+        }
+
+        .founder-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .founder-info p {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--accent-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 500;
+        }
+
+        .mini-logo img {
+            max-height: 40px;
+            width: auto;
+        }
+
+        .card-back-body {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 15px;
+            gap: 20px;
+        }
+
+        .details-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 60%;
+        }
+
+        .tagline-col {
+            max-width: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            text-align: right;
+            border-left: 1px solid rgba(197, 168, 128, 0.1);
+            padding-left: 20px;
+        }
+
+        .tagline-col h3 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .info-item svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+            stroke: var(--accent-gold-solid);
+        }
+
+        .info-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-item a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Action Buttons */
+        .actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: #000000;
+            border: none;
+            box-shadow: 0 10px 20px rgba(197, 168, 128, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(197, 168, 128, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .print-note {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #666;
+            max-width: 450px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+                min-height: auto;
+            }
+            .header, .actions, .print-note {
+                display: none !important;
+            }
+            .card-container {
+                width: 3.5in;
+                height: 2.0in;
+                margin: 0.5in auto;
+                page-break-inside: avoid;
+            }
+            .card-inner {
+                box-shadow: none;
+                transform: none !important;
+            }
+            .card-front, .card-back {
+                border: 1px solid #ddd;
+                background: #ffffff !important;
+                color: #000000 !important;
+                position: relative;
+                transform: none !important;
+                backface-visibility: visible;
+                display: flex !important;
+                page-break-after: always;
+                width: 3.5in;
+                height: 2.0in;
+                padding: 0.2in !important;
+                border-radius: 0;
+            }
+            .card-back {
+                margin-top: 0.5in;
+            }
+            .company-name, .header h1, .founder-info p {
+                background: none !important;
+                -webkit-text-fill-color: initial !important;
+                color: #000000 !important;
+            }
+            .company-subtitle, .founder-info p, .info-item, .info-item a, .tagline-col h3 {
+                color: #444444 !important;
+            }
+            .card-border-gold {
+                background: #000000 !important;
+            }
+            .info-item svg {
+                stroke: #000000 !important;
+            }
+            .tagline-col {
+                border-left: 1px solid #ddd !important;
+            }
+            .card-back-header {
+                border-bottom: 1px solid #ddd !important;
+            }
+        }
+
+        /* Responsive Mobile sizing for viewing */
+        @media (max-width: 680px) {
+            :root {
+                --card-width: 90vw;
+                --card-height: calc(90vw * 0.57);
+            }
+            .card-back {
+                padding: 20px;
+            }
+            .founder-info h2 {
+                font-size: 1.1rem;
+            }
+            .company-name {
+                font-size: 1.5rem;
+                letter-spacing: 3px;
+            }
+            .card-back-body {
+                margin-top: 8px;
+                gap: 10px;
+            }
+            .details-col {
+                gap: 6px;
+                max-width: 65%;
+            }
+            .info-item {
+                font-size: 0.6rem;
+                gap: 5px;
+            }
+            .tagline-col {
+                padding-left: 10px;
+            }
+            .tagline-col h3 {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>PIXEL VISION</h1>
+        <p>Premium Corporate Business Card Design</p>
+    </div>
+
+    <!-- Card Container -->
+    <div class="card-container">
+        <div class="card-inner">
+            
+            <!-- FRONT SIDE -->
+            <div class="card-front">
+                <div class="logo-wrap">
+                    <img src="assets/logo.png" alt="Pixel Vision" class="logo-img">
+                </div>
+                <div class="company-name">Pixel Vision</div>
+                <div class="company-subtitle">Production Company</div>
+                <div class="card-border-gold"></div>
+            </div>
+
+            <!-- BACK SIDE -->
+            <div class="card-back">
+                <div class="card-back-header">
+                    <div class="founder-info">
+                        <h2>JASWANT KUMAR</h2>
+                        <p>Founder & Director</p>
+                    </div>
+                    <div class="mini-logo">
+                        <img src="assets/logo.png" alt="Pixel Vision">
+                    </div>
+                </div>
+
+                <div class="card-back-body">
+                    <div class="details-col">
+                        <!-- Phone -->
+                        <div class="info-item">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span>+91 9993694939 &nbsp;|&nbsp; +91 9340539898</span>
+                        </div>
+                        <!-- Email -->
+                        <div class="info-item">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <a href="mailto:pixelvisionproduction@gmail.com">pixelvisionproduction@gmail.com</a>
+                        </div>
+                        <!-- Address -->
+                        <div class="info-item">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>E6, G03, MVN, Gulmohar Vatika, Mahaveer Nagar, Near Makoons Play School, Raipur, CG, 492001</span>
+                        </div>
+                    </div>
+
+                    <div class="tagline-col">
+                        <h3>Bringing your Vision to life.</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Action Bar -->
+    <div class="actions">
+        <button class="btn btn-primary" onclick="window.print()">Print Card</button>
+        <a href="index.html" class="btn btn-secondary">Back to Portfolio</a>
+    </div>
+
+    <div class="print-note">
+        * Hover over the card to flip it and view the back. Clicking "Print Card" will format the card layout directly for standard 3.5" x 2.0" landscape printing paper.
+    </div>
+
+</body>
+</html>
