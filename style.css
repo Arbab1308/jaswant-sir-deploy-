@@ -221,7 +221,7 @@ body {
 .hero-image-bg,
 .hero-video-bg {
   position: absolute;
-  top: 50%;
+  top: 44%;
   left: 50%;
   min-width: 100%;
   min-height: 120%;
@@ -261,6 +261,7 @@ body {
   text-align: center;
   max-width: 1000px;
   padding: 0 40px;
+  transform: translateY(30px); /* Shift text slightly downward */
 }
 
 .hero-main-title {
