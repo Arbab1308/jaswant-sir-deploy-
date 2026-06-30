@@ -597,9 +597,9 @@ body {
 
 .founder-parallax-wrap {
   position: absolute;
-  inset: -5% 0;
+  inset: -4% 0;
   width: 100%;
-  height: 110%;
+  height: 108%;
   will-change: transform;
 }
 
@@ -799,9 +799,9 @@ body {
 
 .founder-parallax-wrap {
   position: absolute;
-  inset: -5% 0;
+  inset: -4% 0;
   width: 100%;
-  height: 110%;
+  height: 108%;
   will-change: transform;
 }
 
