@@ -427,12 +427,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const videoId = card.getAttribute("data-video-id");
       const playerId = `player-${index + 1}`;
 
+      if (!videoId) return;
+
       players[playerId] = new YT.Player(playerId, {
         height: "100%",
         width: "100%",
         videoId: videoId,
         playerVars: {
-          autoplay: 0,
+          autoplay: 1,
           controls: 0,
           showinfo: 0,
           rel: 0,
@@ -443,35 +445,24 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         events: {
           onReady: (event) => {
-            // Player is ready
+            event.target.mute();
+            event.target.playVideo();
           },
+          onStateChange: (event) => {
+            if (event.data === YT.PlayerState.PLAYING) {
+              const placeholder = card.querySelector(".video-placeholder");
+              if (placeholder) placeholder.style.opacity = "0";
+              const ytPlayerEl = card.querySelector(".yt-player");
+              if (ytPlayerEl) ytPlayerEl.style.opacity = "1";
+            }
+          }
         },
-      });
-
-      card.addEventListener("mouseenter", () => {
-        if (
-          players[playerId] &&
-          typeof players[playerId].playVideo === "function"
-        ) {
-          players[playerId].playVideo();
-        }
-      });
-
-      card.addEventListener("mouseleave", () => {
-        if (
-          players[playerId] &&
-          typeof players[playerId].pauseVideo === "function"
-        ) {
-          players[playerId].pauseVideo();
-          // Optional: reset to start
-          // players[playerId].seekTo(0);
-        }
       });
     });
   };
 
-  // ─── PORTFOLIO VIMEO HOVER PLAY ───
-  (function initVimeoHover() {
+  // ─── PORTFOLIO VIMEO CONTINUOUS PLAY ───
+  (function initVimeoContinuous() {
     const vimeoCards = document.querySelectorAll(".portfolio-card[data-vimeo-src]");
     const vimeoPlayers = {};
 
@@ -484,16 +475,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const cardId = iframe.id || `vimeo-${Math.random().toString(36).substr(2, 9)}`;
       vimeoPlayers[cardId] = player;
 
-      card.addEventListener("mouseenter", () => {
-        if (player && typeof player.play === "function") {
-          player.play().catch(err => console.log("Vimeo play error:", err));
-        }
-      });
+      // Set to play automatically
+      player.setVolume(0);
+      player.play().catch(err => console.log("Vimeo play error:", err));
 
-      card.addEventListener("mouseleave", () => {
-        if (player && typeof player.pause === "function") {
-          player.pause().catch(err => console.log("Vimeo pause error:", err));
-        }
+      // Fade out placeholder when playing
+      player.on("play", () => {
+        const placeholder = card.querySelector(".video-placeholder");
+        if (placeholder) placeholder.style.opacity = "0";
+        iframe.style.opacity = "1";
       });
     });
   })();

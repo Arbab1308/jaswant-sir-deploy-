@@ -1014,15 +1014,16 @@ body {
 .portfolio-cards-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 1400px;
+  gap: 48px;
+  max-width: 1650px;
+  width: 95%;
   margin: 0 auto;
 }
 
 .portfolio-card {
   background-color: #1a1a1a;
   border-radius: 20px;
-  padding: 24px;
+  padding: 28px;
   transition:
     transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
     background-color 0.4s ease;
@@ -1065,15 +1066,6 @@ body {
   background-position: center;
   z-index: 2;
   transition: opacity 0.5s ease;
-}
-
-.portfolio-card:hover .yt-player,
-.portfolio-card:hover .vimeo-iframe {
-  opacity: 1;
-}
-
-.portfolio-card:hover .video-placeholder {
-  opacity: 0;
 }
 
 .card-info {
