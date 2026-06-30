@@ -606,7 +606,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center 30%;
   display: block;
 }
 
@@ -808,7 +808,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center 30%;
   display: block;
 }
 
@@ -1628,7 +1628,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%; /* Adjusted for headshot */
+  object-position: center 35%; /* Adjusted for headshot */
 }
 
 .about-founder-hero .hero-fade-overlay {
