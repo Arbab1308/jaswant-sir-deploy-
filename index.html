@@ -4,25 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videohut | Hero & Showreel</title>
+    <title>Pixel Vision Studios | Professional Video Production & Cinematography</title>
+    <meta name="description" content="Pixel Vision Studios is a premier video production company specializing in cinematography, corporate films, music videos, social media content, and event coverage. Turning video into vibrant conversations since 2015.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://player.vimeo.com" crossorigin>
+    <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+    <link rel="preconnect" href="https://img.youtube.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
     <script src="https://player.vimeo.com/api/player.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="script.min.js" defer></script>
 </head>
 <body>
 
     <nav class="top-nav">
         <div class="nav-container">
-            <a href="#home" class="nav-logo" style="text-decoration:none;">
+            <a href="#home" class="nav-logo" style="text-decoration:none;" aria-label="Pixel Vision Studios - Home">
                 <!-- ─── CAMERA MASCOT (AS LOGO) ─── -->
                 <div class="camera-mascot logo-mascot" id="cameraMascot">
                     <svg viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +89,7 @@
 
     <!-- Brand Partners Marquee -->
     <section class="brand-marquee-section">
-        <h3 class="brand-heading">Standing Tall with Our Esteemed Brand Partners</h3>
+        <h2 class="brand-heading">Standing Tall with Our Esteemed Brand Partners</h2>
         <div class="marquee-wrapper">
             <div class="marquee-track">
                 <!-- First set -->
@@ -229,7 +235,7 @@
             <!-- Card 5 -->
             <div class="portfolio-card" data-vimeo-src="https://player.vimeo.com/video/1204936786?h=e83ca1069c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1">
                 <div class="video-wrapper">
-                    <iframe id="vimeo-player-5" class="vimeo-iframe" src="https://player.vimeo.com/video/1204936786?h=e83ca1069c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zomato_live_BTS_v3"></iframe>
+                    <iframe id="vimeo-player-5" class="vimeo-iframe" src="https://player.vimeo.com/video/1204936786?h=e83ca1069c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zomato_live_BTS_v3"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://img.youtube.com/vi/HRT9hZoIwAE/maxresdefault.jpg');"></div>
                 </div>
                 <div class="card-info">
@@ -305,15 +311,15 @@
             <!-- Column 1 -->
             <div class="reels-column">
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1205462522?h=c621584a09&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="RHOMEO LANE FINAL REEL_v1"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1205462522?h=c621584a09&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="RHOMEO LANE FINAL REEL_v1"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1205462522.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1203460273?h=5bdf71c3a6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LOCAL EVENT REEL FINAL REEL_v2"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1203460273?h=5bdf71c3a6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LOCAL EVENT REEL FINAL REEL_v2"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1203460273.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1203459906?h=38eab40bd2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Looks salon_final export2"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1203459906?h=38eab40bd2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Looks salon_final export2"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1203459906.jpg');"></div>
                 </div>
             </div>
@@ -321,15 +327,15 @@
             <!-- Column 2 -->
             <div class="reels-column">
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1203557408?h=ca53958fff&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SIMBA WIT_final"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1203557408?h=ca53958fff&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SIMBA WIT_final"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1203557408.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1203556715?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="GOLDSTRING3_V1"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1203556715?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="GOLDSTRING3_V1"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1203556715.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1203449240?h=ba7e503ebd&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="TOBACCO_final"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1203449240?h=ba7e503ebd&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="TOBACCO_final"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1203449240.jpg');"></div>
                 </div>
             </div>
@@ -337,15 +343,15 @@
             <!-- Column 3 -->
             <div class="reels-column">
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1204940138?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="CHANDINI REEL v1"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1204940138?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="CHANDINI REEL v1"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1204940138.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1203597106?h=cd7eea6537&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="REEL 1_rishabh_Travis_final"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1203597106?h=cd7eea6537&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="REEL 1_rishabh_Travis_final"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1203597106.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1205243739?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Tennis_v2"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1205243739?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Tennis_v2"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1205243739.jpg');"></div>
                 </div>
             </div>
@@ -353,15 +359,15 @@
             <!-- Column 4 -->
             <div class="reels-column">
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1205244411?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Shubman Gill X Gshock"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1205244411?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Shubman Gill X Gshock"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1205244411.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1204935624?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="GARNIER X ISHITA_v1"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1204935624?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="GARNIER X ISHITA_v1"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1204935624.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/980665828?h=7665c90ce1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Devil'sBurger_Final"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/980665828?h=7665c90ce1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Devil'sBurger_Final"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/980665828.jpg');"></div>
                 </div>
             </div>
@@ -369,15 +375,15 @@
             <!-- Column 5 -->
             <div class="reels-column">
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1204946717?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="WHITE OUTFIT FINAL"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1204946717?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="WHITE OUTFIT FINAL"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1204946717.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1203448985?h=be2fdacd0a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PANTHER"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1203448985?h=be2fdacd0a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PANTHER"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1203448985.jpg');"></div>
                 </div>
                 <div class="reel-item" tabindex="0">
-                    <iframe class="vimeo-iframe-reel" src="https://player.vimeo.com/video/1204947261?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="REEL 1_FINAL"></iframe>
+                    <iframe class="vimeo-iframe-reel" loading="lazy" src="https://player.vimeo.com/video/1204947261?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="REEL 1_FINAL"></iframe>
                     <div class="video-placeholder" style="background-image: url('https://vumbnail.com/1204947261.jpg');"></div>
                 </div>
             </div>

@@ -429,17 +429,39 @@ document.addEventListener("DOMContentLoaded", () => {
   initNoise("founderNoiseCanvas");
   initNoise("portfolioNoiseCanvas");
 
-  // ─── PORTFOLIO YOUTUBE HOVER PLAY ───
+  // ─── PORTFOLIO YOUTUBE & VIMEO LAZY HOVER PLAY ───
   const portfolioCards = document.querySelectorAll(".portfolio-card");
   const players = {};
+  let youtubeAPIRequested = false;
 
-  // Load YouTube API
-  const tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  const firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  function loadYouTubeAPI(callback) {
+    if (window.YT && window.YT.Player) {
+      callback();
+      return;
+    }
+    if (!window.onYouTubeIframeAPIReady) {
+      const callbacks = [];
+      window.onYouTubeIframeAPIReady = function () {
+        callbacks.forEach((cb) => cb());
+      };
+      window._ytCallbacks = callbacks;
+    }
+    window._ytCallbacks.push(callback);
 
-  window.onYouTubeIframeAPIReady = function () {
+    if (!youtubeAPIRequested) {
+      youtubeAPIRequested = true;
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      if (firstScriptTag && firstScriptTag.parentNode) {
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      } else {
+        document.head.appendChild(tag);
+      }
+    }
+  }
+
+  function initYouTubePlayers() {
     portfolioCards.forEach((card, index) => {
       const videoId = card.getAttribute("data-video-id");
       const playerId = `player-${index + 1}`;
@@ -457,7 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
           rel: 0,
           modestbranding: 1,
           loop: 1,
-          mute: 1, // Must be muted for mobile/browser autoplay policies
+          mute: 1,
           playlist: videoId,
         },
         events: {
@@ -472,14 +494,13 @@ document.addEventListener("DOMContentLoaded", () => {
               const ytPlayerEl = card.querySelector(".yt-player");
               if (ytPlayerEl) ytPlayerEl.style.opacity = "1";
             }
-          }
+          },
         },
       });
     });
-  };
+  }
 
-  // ─── PORTFOLIO VIMEO CONTINUOUS PLAY ───
-  (function initVimeoContinuous() {
+  function initVimeoContinuous() {
     const vimeoCards = document.querySelectorAll(".portfolio-card[data-vimeo-src]");
     const vimeoPlayers = {};
 
@@ -487,23 +508,47 @@ document.addEventListener("DOMContentLoaded", () => {
       const iframe = card.querySelector(".vimeo-iframe");
       if (!iframe) return;
 
-      // Initialize Vimeo Player
       const player = new Vimeo.Player(iframe);
       const cardId = iframe.id || `vimeo-${Math.random().toString(36).substr(2, 9)}`;
       vimeoPlayers[cardId] = player;
 
-      // Set to play automatically
       player.setVolume(0);
-      player.play().catch(err => console.log("Vimeo play error:", err));
+      player.play().catch((err) => console.log("Vimeo play error:", err));
 
-      // Fade out placeholder when playing
       player.on("play", () => {
         const placeholder = card.querySelector(".video-placeholder");
         if (placeholder) placeholder.style.opacity = "0";
         iframe.style.opacity = "1";
       });
     });
-  })();
+  }
+
+  const portfolioContainer = document.querySelector(".portfolio-cards-container");
+  if (portfolioContainer) {
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              loadYouTubeAPI(initYouTubePlayers);
+              if (window.Vimeo) {
+                initVimeoContinuous();
+              } else {
+                window.addEventListener("load", initVimeoContinuous);
+              }
+              observer.disconnect();
+            }
+          });
+        },
+        { rootMargin: "200px" }
+      );
+      observer.observe(portfolioContainer);
+    } else {
+      // Fallback if IntersectionObserver not supported
+      loadYouTubeAPI(initYouTubePlayers);
+      window.addEventListener("load", initVimeoContinuous);
+    }
+  }
 
   // ─── SOCIAL MEDIA REELS: HOVER & LIGHTBOX ───
   (function initReels() {

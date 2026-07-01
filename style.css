@@ -1180,7 +1180,7 @@ body {
 .reels-subtitle {
   font-family: var(--font-body);
   font-size: clamp(0.85rem, 1.2vw, 1rem);
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.55);
   line-height: 1.6;
 }
 
@@ -1467,7 +1467,7 @@ body {
 .services-subtitle {
   font-family: var(--font-body);
   font-size: clamp(0.9rem, 1.2vw, 1.1rem);
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.55);
   max-width: 500px;
   line-height: 1.6;
 }
@@ -2999,7 +2999,7 @@ body {
 .footer-copy-bar p {
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .built-in {
