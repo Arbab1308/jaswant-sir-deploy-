@@ -622,15 +622,22 @@ body {
   height: 70px;
 }
 
-.marquee-item svg {
-  height: 28px;
+.marquee-item svg,
+.marquee-item img {
+  max-height: 36px;
+  max-width: 130px;
   width: auto;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.6;
+  filter: grayscale(1);
+  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
-.marquee-item:hover svg {
+.marquee-item:hover svg,
+.marquee-item:hover img {
   opacity: 1;
+  filter: grayscale(0);
 }
 
 @keyframes marqueeScrollLeft {
