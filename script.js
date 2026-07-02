@@ -139,10 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
       gsap.fromTo(
         ".founder-parallax-wrap",
         {
-          yPercent: -8,
+          yPercent: -3,
         },
         {
-          yPercent: 8,
+          yPercent: 3,
           ease: "none",
           scrollTrigger: {
             trigger: ".founder-section",
