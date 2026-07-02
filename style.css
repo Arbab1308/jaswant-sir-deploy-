@@ -52,6 +52,11 @@ body {
     transparent 100%
   );
   pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
+}
+
+.top-nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .nav-container {
@@ -66,16 +71,51 @@ body {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   color: white;
 }
 
+.nav-mascot-pill {
+  background: #ffffff;
+  border-radius: 50px;
+  padding: 8px 20px 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.nav-logo:hover .nav-mascot-pill {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
 .nav-logo-img {
-  height: 75px;
+  height: 42px;
   width: auto;
   display: block;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* Forces the image to be white */
+  filter: brightness(0); /* Forces the logo text image to be solid black inside the white pill */
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover .nav-logo-img {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .nav-mascot-pill {
+    padding: 6px 14px 6px 10px;
+    gap: 8px;
+  }
+  .nav-logo-img {
+    height: 30px;
+  }
+  .nav-logo {
+    gap: 10px;
+  }
 }
 
 .nav-links {
@@ -311,12 +351,17 @@ body {
   position: relative;
   bottom: auto;
   right: auto;
-  width: 65px; /* Compact size for logo */
+  width: 48px; /* Compact size inside pill */
   height: auto;
   z-index: 100;
   pointer-events: auto; /* Enable hover/cursor tracking in nav */
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-  margin-right: 15px;
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .camera-mascot.logo-mascot {
+    width: 36px;
+  }
 }
 
 .camera-mascot {
@@ -562,7 +607,8 @@ body {
   font-family: var(--font-heading);
   font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.45);
+  text-shadow: 0 0 25px rgba(255, 87, 34, 0.35);
   line-height: 1;
   letter-spacing: -0.03em;
   position: absolute;
@@ -607,8 +653,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
-  transform: scale(0.92);
+  object-position: center top;
   display: block;
 }
 
@@ -765,7 +810,8 @@ body {
   font-family: var(--font-heading);
   font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.45);
+  text-shadow: 0 0 25px rgba(255, 87, 34, 0.35);
   line-height: 1;
   letter-spacing: -0.03em;
   position: absolute;
@@ -811,7 +857,6 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center 15%;
-  transform: scale(0.92);
   display: block;
 }
 
@@ -1328,6 +1373,7 @@ body {
 
 .reel-item.reel-expanded .vimeo-iframe-reel {
   pointer-events: auto;
+  transform: scale(1.0); /* Reset scale on expansion to make controls visible */
 }
 
 /* ── Mute toggle button ── */
@@ -1415,12 +1461,12 @@ body {
 /* ── Close button (injected by JS) ── */
 .reel-close-btn {
   position: fixed;
-  top: 20px;
-  right: 24px;
+  top: calc(50% - 35vh - 50px);
+  left: calc(50% + 19.7vh - 20px);
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1428,13 +1474,23 @@ body {
   cursor: pointer;
   z-index: 10001;
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .reel-close-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .reel-close-btn {
+    top: 20px;
+    right: 20px;
+    left: auto;
+  }
 }
 
 /* ─── SERVICES SECTION (Row Menu) ─── */
@@ -1619,11 +1675,10 @@ body {
 
 .about-founder-hero .hero-bg-wrapper {
   position: absolute;
-  top: 50%;
+  top: 0;
   right: 0;
-  width: 70%;
+  width: 100%;
   height: 100%;
-  transform: translateY(-50%);
   z-index: 1;
 }
 
@@ -1631,8 +1686,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%; /* Adjusted for headshot */
-  transform: scale(0.92);
+  object-position: center top; /* Perfectly framed headshot */
 }
 
 .about-founder-hero .hero-fade-overlay {
@@ -1881,7 +1935,8 @@ body {
   font-family: var(--font-heading);
   font-size: clamp(4rem, 8vw, 7rem);
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.45);
+  text-shadow: 0 0 30px rgba(255, 87, 34, 0.35);
   position: absolute;
   top: 50%;
   left: 50%;

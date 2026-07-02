@@ -85,6 +85,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", refreshScrollLayout);
 
+  // ─── SMART NAVBAR (HIDE ON SCROLL DOWN, SHOW ON SCROLL UP) ───
+  (function initSmartNavbar() {
+    const topNav = document.querySelector(".top-nav");
+    if (!topNav) return;
+
+    let lastScrollY = window.scrollY || window.pageYOffset || 0;
+    const scrollThreshold = 10; // minimum scroll delta to avoid jitter
+
+    function handleNavScroll(currentScrollY) {
+      // If mobile menu is open, don't hide navbar
+      const isMobileMenuOpen = document.querySelector(".nav-links.mobile-open");
+      if (isMobileMenuOpen) {
+        topNav.classList.remove("nav-hidden");
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      // If at the very top of the page, always show navbar
+      if (currentScrollY <= 60) {
+        topNav.classList.remove("nav-hidden");
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      // Check difference
+      if (Math.abs(currentScrollY - lastScrollY) < scrollThreshold) {
+        return;
+      }
+
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down -> hide navbar
+        topNav.classList.add("nav-hidden");
+      } else {
+        // Scrolling up -> show navbar
+        topNav.classList.remove("nav-hidden");
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        handleNavScroll(window.scrollY || window.pageYOffset || 0);
+      },
+      { passive: true }
+    );
+
+    if (lenis) {
+      lenis.on("scroll", (e) => {
+        handleNavScroll(e.scroll || window.scrollY || 0);
+      });
+    }
+  })();
+
   // ─── SCROLL ANIMATIONS ───
   function initScrollAnimations() {
     // 1. HERO PARALLAX
@@ -550,13 +605,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // ─── SOCIAL MEDIA REELS: HOVER & LIGHTBOX ───
+  // ─── SOCIAL MEDIA REELS: SECTION-LEVEL LAZY LOAD & LIGHTBOX ───
   (function initReels() {
     const grid = document.getElementById("reelsGrid");
     const overlay = document.getElementById("reelOverlay");
     if (!grid || !overlay) return;
 
     let expandedReel = null;
+    let reelsLoaded = false;
 
     // Create close button
     const closeBtn = document.createElement("div");
@@ -571,15 +627,10 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.classList.remove("active");
       closeBtn.style.display = "none";
       document.body.style.overflow = ""; // restore scroll
-      
-      const vid = expandedReel.querySelector("video");
-      if (vid) {
-        vid.muted = true;
-        vid.play().catch(()=>{}); // Keep playing in background
-      }
+
       if (expandedReel._vimeoPlayer) {
-        expandedReel._vimeoPlayer.setVolume(0);
-        expandedReel._vimeoPlayer.play().catch(()=>{}); // Keep playing in background
+        expandedReel._vimeoPlayer.setVolume(0).catch(() => {});
+        expandedReel._vimeoPlayer.play().catch(() => {});
       }
       expandedReel = null;
     }
@@ -587,56 +638,98 @@ document.addEventListener("DOMContentLoaded", () => {
     closeBtn.addEventListener("click", closeExpanded);
     overlay.addEventListener("click", closeExpanded);
 
-    grid.querySelectorAll(".reel-item").forEach((item) => {
-      const vid = item.querySelector("video");
-      const vimeoIframe = item.querySelector(".vimeo-iframe-reel");
-      const placeholder = item.querySelector(".video-placeholder");
-      
-      if (vimeoIframe) {
-        const player = new Vimeo.Player(vimeoIframe);
-        item._vimeoPlayer = player;
-        player.setVolume(0);
-        player.play().catch(()=>{});
-        
-        player.on('play', () => {
-          if (placeholder) placeholder.style.opacity = '0';
+    // ── Load ALL reels with staggered delays when section enters viewport ──
+    function loadAllReels() {
+      if (reelsLoaded) return;
+      reelsLoaded = true;
+
+      const items = Array.from(grid.querySelectorAll(".reel-item"));
+      items.forEach((item, index) => {
+        // Stagger the loading of each reel by 150ms to bypass browser and Vimeo rate/connection limits
+        setTimeout(() => {
+          const iframe = item.querySelector(".vimeo-iframe-reel");
+          const placeholder = item.querySelector(".video-placeholder");
+
+          // 1. Lazy-load the placeholder image first so they don't all load on page load
+          if (placeholder && placeholder.dataset.bg) {
+            placeholder.style.backgroundImage = `url('${placeholder.dataset.bg}')`;
+            delete placeholder.dataset.bg;
+          }
+
+          if (!iframe || !iframe.dataset.src) return;
+
+          // 2. Inject the iframe src to start loading
+          iframe.src = iframe.dataset.src;
+          delete iframe.dataset.src;
+
+          // 3. Create Vimeo player and auto-play
+          try {
+            const player = new Vimeo.Player(iframe);
+            item._vimeoPlayer = player;
+            player.setVolume(0).catch(() => {});
+
+            // Ensure placeholder fades out when video actually starts playing
+            player.on("play", () => {
+              if (placeholder) {
+                placeholder.style.opacity = "0";
+              }
+            });
+
+            // Fallback: If play event hasn't fired in 3.5 seconds, force hide placeholder
+            // because the video might be playing but the play event was swallowed by the SDK
+            setTimeout(() => {
+              if (placeholder && placeholder.style.opacity !== "0") {
+                placeholder.style.opacity = "0";
+              }
+            }, 3500);
+
+            // Trigger play with automatic retry on failure
+            player.play().catch((err) => {
+              console.warn("Vimeo autoplay failed or interrupted:", err);
+              setTimeout(() => {
+                player.play().catch(() => {});
+              }, 1200);
+            });
+          } catch (e) {
+            console.error("Vimeo Player init error:", e);
+          }
+        }, index * 150);
+      });
+    }
+
+    // ── Observe the entire reels grid section ──
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadAllReels();
+            sectionObserver.unobserve(grid);
+          }
         });
-      } else if (vid) {
-        vid.removeAttribute("autoplay");
-        vid.muted = true;
-        vid.loop = true;
-        vid.play().catch(()=>{});
-        
-        vid.addEventListener('play', () => {
-          if (placeholder) placeholder.style.opacity = '0';
-        });
+      },
+      {
+        rootMargin: "300px 0px", // Start loading 300px before section enters viewport
+        threshold: 0,
       }
+    );
 
-      item.addEventListener("mouseenter", () => {
-        // Videos are already playing, no need to trigger play
-      });
+    sectionObserver.observe(grid);
 
-      item.addEventListener("mouseleave", () => {
-        // Do not pause on mouse leave, keep playing continuously
-      });
-
+    // ── Set up click-to-expand for each reel ──
+    grid.querySelectorAll(".reel-item").forEach((item) => {
       item.addEventListener("click", () => {
         if (expandedReel === item) return;
-        
+
         expandedReel = item;
         item.classList.add("reel-expanded");
         overlay.classList.add("active");
         closeBtn.style.display = "flex";
         document.body.style.overflow = "hidden"; // lock scroll
-        
+
         if (item._vimeoPlayer) {
-          item._vimeoPlayer.setCurrentTime(0).catch(()=>{});
-          item._vimeoPlayer.setVolume(1).catch(()=>{});
-          item._vimeoPlayer.play().catch(()=>{});
-        } else if (vid) {
-          vid.currentTime = 0;
-          vid.muted = false;
-          vid.play().catch(()=>{});
+          item._vimeoPlayer.setCurrentTime(0).catch(() => {});
+          item._vimeoPlayer.setVolume(1).catch(() => {});
+          item._vimeoPlayer.play().catch(() => {});
         }
       });
     });
@@ -941,5 +1034,55 @@ document.addEventListener("DOMContentLoaded", () => {
         startAt: { y: 100 },
       });
     }
+  })();
+
+  // ─── STATS COUNT UP ANIMATION ───
+  (function initStatsCountUp() {
+    const statNumbers = document.querySelectorAll(".stat-number");
+    if (!statNumbers.length) return;
+
+    statNumbers.forEach((statEl) => {
+      const rawText = statEl.textContent.trim();
+      const match = rawText.match(/^(\d+)(.*)$/);
+      if (!match) return;
+
+      const targetValue = parseInt(match[1], 10);
+      const suffix = match[2];
+
+      statEl.textContent = "0" + suffix;
+
+      const triggerEl = statEl.closest(".stat-card, .agency-stat-card") || statEl;
+      const obj = { val: 0 };
+
+      gsap.to(obj, {
+        val: targetValue,
+        duration: 1.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: triggerEl,
+          start: "top 85%",
+          toggleActions: "restart none none reverse",
+        },
+        onUpdate: () => {
+          statEl.textContent = Math.floor(obj.val) + suffix;
+        },
+      });
+
+      gsap.fromTo(
+        statEl,
+        { scale: 0.7, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.8,
+          ease: "back.out(1.4)",
+          scrollTrigger: {
+            trigger: triggerEl,
+            start: "top 85%",
+            toggleActions: "restart none none reverse",
+          },
+        }
+      );
+    });
   })();
 });

@@ -24,24 +24,27 @@
     <nav class="top-nav">
         <div class="nav-container">
             <a href="index.html#home" class="nav-logo" style="text-decoration:none;" aria-label="Pixel Vision Studios - Home">
-                <!-- ─── CAMERA MASCOT (AS LOGO) ─── -->
-                <div class="camera-mascot logo-mascot" id="cameraMascot">
-                    <svg viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="10" y="18" width="120" height="34" fill="white" stroke="black" stroke-width="1.5"/>
-                        <rect x="10" y="68" width="120" height="34" fill="white" stroke="black" stroke-width="1.5"/>
-                        <rect x="85" y="3" width="30" height="10" fill="white" stroke="black" stroke-width="1.5"/>
-                        <circle cx="118" cy="30" r="3" fill="black"/>
-                        <g class="eyes-container">
-                            <circle cx="45" cy="55" r="24" fill="white" stroke="black" stroke-width="1.5"/>
-                            <circle cx="95" cy="55" r="24" fill="white" stroke="black" stroke-width="1.5"/>
-                            <g class="pupil-wrap" id="pupilLeftWrap">
-                                <circle cx="45" cy="55" r="11" fill="black" class="pupil" id="pupilLeft"/>
+                <!-- ─── WHITE PILL (CAMERA MASCOT + LOGO TEXT) ─── -->
+                <div class="nav-mascot-pill">
+                    <div class="camera-mascot logo-mascot" id="cameraMascot">
+                        <svg viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="18" width="120" height="34" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+                            <rect x="10" y="68" width="120" height="34" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+                            <rect x="85" y="3" width="30" height="10" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+                            <circle cx="118" cy="30" r="3" fill="white"/>
+                            <g class="eyes-container">
+                                <circle cx="45" cy="55" r="24" fill="white" stroke="#000000" stroke-width="2"/>
+                                <circle cx="95" cy="55" r="24" fill="white" stroke="#000000" stroke-width="2"/>
+                                <g class="pupil-wrap" id="pupilLeftWrap">
+                                    <circle cx="45" cy="55" r="11" fill="black" class="pupil" id="pupilLeft"/>
+                                </g>
+                                <g class="pupil-wrap" id="pupilRightWrap">
+                                    <circle cx="95" cy="55" r="11" fill="black" class="pupil" id="pupilRight"/>
+                                </g>
                             </g>
-                            <g class="pupil-wrap" id="pupilRightWrap">
-                                <circle cx="95" cy="55" r="11" fill="black" class="pupil" id="pupilRight"/>
-                            </g>
-                        </g>
-                    </svg>
+                        </svg>
+                    </div>
+                    <img src="assets/logo.png" alt="PIXEL VISION" class="nav-logo-img">
                 </div>
             </a>
 
@@ -497,7 +500,7 @@
 
             <!-- Copyright Bar -->
             <div class="footer-copy-bar">
-                <p>&copy;Template by RealMehedi</p>
+                <p>&copy; 2026 Pixel Vision Studios</p>
                 <div class="built-in">
                     <p>Developed by Web Pro Solutions</p>
                 </div>
