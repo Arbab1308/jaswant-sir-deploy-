@@ -602,11 +602,11 @@ body {
 }
 
 .row-left .marquee-track {
-  animation: marqueeScrollLeft 30s linear infinite;
+  animation: marqueeScrollLeft 120s linear infinite;
 }
 
 .row-right .marquee-track {
-  animation: marqueeScrollRight 30s linear infinite;
+  animation: marqueeScrollRight 120s linear infinite;
 }
 
 .marquee-item {
