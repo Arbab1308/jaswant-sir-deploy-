@@ -16,13 +16,13 @@
     <link rel="preconnect" href="https://img.youtube.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="style.min.css?v=2">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
     <script src="https://player.vimeo.com/api/player.js" defer></script>
-    <script src="script.min.js" defer></script>
+    <script src="script.min.js?v=2" defer></script>
 </head>
 <body>
 
@@ -57,7 +57,7 @@
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#" class="nav-link">Projects</a>
                 <a href="#" class="nav-link">Albums</a>
-                <a href="about.html" class="nav-link">About</a>
+                <a href="#" class="nav-link">About</a>
                 <a href="#" class="nav-link">Services</a>
                 <a href="#" class="nav-link">Blogs</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -77,10 +77,26 @@
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay-gradient"></div>
-        <div class="hero-content-center">
-            <h1 class="hero-main-title">Turning Video into Vibrant<br>Conversations.</h1>
+        <div class="hero-content-left">
+            <div class="hero-tagline">
+                <span class="tagline-line"></span>VIDEO PRODUCTION THAT CONNECTS
+            </div>
+            <h1 class="hero-main-title">Turning Video<br>into Vibrant<br><span class="highlight-underline">Conversations.</span></h1>
             <p class="hero-subtitle">We're your friendly video wizards creating fantastic<br>commercials, corporate videos, social ads and many more.</p>
-            <a href="#" class="hero-cta-btn">Let's Work Together</a>
+            <a href="#" class="hero-cta-btn">Let's Work Together <span class="btn-arrow">→</span></a>
+        </div>
+
+        <!-- Hero Services Showcase -->
+        <div class="hero-services-showcase">
+            <span class="showcase-title">We make</span>
+            <div class="showcase-ticker">
+                <span class="ticker-item">Corporate Films</span>
+                <span class="ticker-item">Music Videos</span>
+                <span class="ticker-item">Fashion & Commercial</span>
+                <span class="ticker-item">Social Media Content</span>
+                <span class="ticker-item">Podcast Production</span>
+                <span class="ticker-item">Event Coverage</span>
+            </div>
         </div>
     </section>
 
@@ -92,8 +108,10 @@
 
     <!-- Brand Partners Marquee -->
     <section class="brand-marquee-section">
-        <h2 class="brand-heading">Standing Tall with Our Esteemed Brand Partners</h2>
-        <div class="marquee-wrapper">
+        <h2 class="brand-heading">Trusted by 74+ Brands Worldwide</h2>
+        
+        <!-- Row 1: Sliding Left -->
+        <div class="marquee-wrapper row-left">
             <div class="marquee-track">
                 <!-- First set -->
                 <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="22" font-family="Arial" font-size="16" font-weight="bold" letter-spacing="3">LOGOIPSUM</text></svg></div>
@@ -115,6 +133,30 @@
                 <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><text x="0" y="22" font-family="Georgia" font-size="16" font-style="italic">Artisan Studio</text></svg></div>
             </div>
         </div>
+
+        <!-- Row 2: Sliding Right -->
+        <div class="marquee-wrapper row-right">
+            <div class="marquee-track">
+                <!-- First set -->
+                <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><text x="0" y="22" font-family="Georgia" font-size="16" font-style="italic">Artisan Studio</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><rect x="0" y="5" width="20" height="20" rx="4" fill="none" stroke="white" stroke-width="2"/><text x="28" y="21" font-family="Arial" font-size="13" font-weight="600" letter-spacing="1">BRANDCO</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="21" font-family="Arial" font-size="14">logo</text><text x="40" y="21" font-family="Arial" font-size="14" fill="#FF6A3D">♥</text><text x="58" y="21" font-family="Arial" font-size="14">ipsum</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><circle cx="16" cy="15" r="10" fill="white" opacity="0.3"/><text x="32" y="21" font-family="Arial" font-size="14">Logoipsum</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 100 30" fill="white"><text x="5" y="24" font-family="serif" font-size="22" font-weight="bold">标识</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><circle cx="12" cy="15" r="8" fill="none" stroke="white" stroke-width="2"/><text x="26" y="21" font-family="Arial" font-size="14" letter-spacing="2">LOGOIPSUM</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 100 30" fill="white"><text x="5" y="24" font-family="Georgia" font-size="22" font-weight="bold">ロゴ</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="22" font-family="Arial" font-size="16" font-weight="bold" letter-spacing="3">LOGOIPSUM</text></svg></div>
+                <!-- Duplicate for seamless loop -->
+                <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><text x="0" y="22" font-family="Georgia" font-size="16" font-style="italic">Artisan Studio</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 140 30" fill="white"><rect x="0" y="5" width="20" height="20" rx="4" fill="none" stroke="white" stroke-width="2"/><text x="28" y="21" font-family="Arial" font-size="13" font-weight="600" letter-spacing="1">BRANDCO</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="21" font-family="Arial" font-size="14">logo</text><text x="40" y="21" font-family="Arial" font-size="14" fill="#FF6A3D">♥</text><text x="58" y="21" font-family="Arial" font-size="14">ipsum</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><circle cx="16" cy="15" r="10" fill="white" opacity="0.3"/><text x="32" y="21" font-family="Arial" font-size="14">Logoipsum</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 100 30" fill="white"><text x="5" y="24" font-family="serif" font-size="22" font-weight="bold">标识</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><circle cx="12" cy="15" r="8" fill="none" stroke="white" stroke-width="2"/><text x="26" y="21" font-family="Arial" font-size="14" letter-spacing="2">LOGOIPSUM</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 100 30" fill="white"><text x="5" y="24" font-family="Georgia" font-size="22" font-weight="bold">ロゴ</text></svg></div>
+                <div class="marquee-item"><svg viewBox="0 0 160 30" fill="white"><text x="0" y="22" font-family="Arial" font-size="16" font-weight="bold" letter-spacing="3">LOGOIPSUM</text></svg></div>
+            </div>
+        </div>
     </section>
 
     <!-- About Our Agency -->
@@ -127,7 +169,7 @@
                 <div class="about-right">
                     <p class="about-lead">Established in 2015, we have dedicated ourselves to <strong>crafting captivating visual narratives</strong> defined by creativity, innovation, and an unwavering commitment to <strong>excellence in video production.</strong></p>
                     <p class="about-body">Our mission is clear: to transform ideas into compelling visual stories. We believe that every project is an opportunity to create something extraordinary. Whether it's a corporate video, a commercial, an event coverage, or an animation, we approach each endeavor with creativity, enthusiasm, and a commitment to exceeding our clients' expectations.</p>
-                    <a href="about-agency.html" class="agency-cta">Discover More</a>
+                    <a href="#" class="agency-cta">Discover More</a>
                 </div>
             </div>
             <div class="about-stats">
@@ -160,7 +202,7 @@
             <span class="founder-tag">FOUNDER</span>
             <h2 class="founder-name">Jaswant Kumar</h2>
             <p class="founder-bio">Hello, I'm Jaswant, a passionate visual storyteller specializing in cinematography, video editing, and VFX. My journey began in the 6th grade, sparking a lifelong passion for capturing the world through my lens.</p>
-            <a href="about.html" class="founder-cta">About Me</a>
+            <a href="#" class="founder-cta">About Me</a>
         </div>
     </section>
 
@@ -191,6 +233,9 @@
                     </div>
                     <h3 class="card-title">ZOMATO LEGENDS</h3>
                 </div>
+                <div class="portfolio-card-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
             </div>
 
             <!-- Card 2 -->
@@ -204,6 +249,9 @@
                         <span class="meta-prefix">/ TVC COMMERCIAL</span>
                     </div>
                     <h3 class="card-title">HAISHA PAINTS</h3>
+                </div>
+                <div class="portfolio-card-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
             </div>
 
@@ -219,6 +267,9 @@
                     </div>
                     <h3 class="card-title">NUTRA BOX</h3>
                 </div>
+                <div class="portfolio-card-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
             </div>
 
             <!-- Card 4 -->
@@ -232,6 +283,9 @@
                         <span class="meta-prefix">/ MUSIC VIDEO</span>
                     </div>
                     <h3 class="card-title">FALLING</h3>
+                </div>
+                <div class="portfolio-card-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
             </div>
 
@@ -247,6 +301,9 @@
                     </div>
                     <h3 class="card-title">ZOMATO LIVE BTS FT. RAHUL DUA | COMEDIAN</h3>
                 </div>
+                <div class="portfolio-card-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
             </div>
 
             <!-- Card 6 -->
@@ -260,6 +317,9 @@
                         <span class="meta-prefix">/ PODCAST</span>
                     </div>
                     <h3 class="card-title">JATIN SAPRU AND YASH DAYAL PODCAST</h3>
+                </div>
+                <div class="portfolio-card-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
             </div>
 
@@ -275,6 +335,9 @@
                     </div>
                     <h3 class="card-title">NIMBU SHINKANJI</h3>
                 </div>
+                <div class="portfolio-card-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
             </div>
 
             <!-- Card 8 -->
@@ -288,6 +351,9 @@
                         <span class="meta-prefix">/ TVC COMMERCIAL</span>
                     </div>
                     <h3 class="card-title">JALJEERA</h3>
+                </div>
+                <div class="portfolio-card-arrow">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
             </div>
         </div>
@@ -407,89 +473,77 @@
         </div>
 
         <div class="services-list">
-            <a href="corporate-films.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
-                <div class="service-item" data-bg="corporate.jpg">
-                    <div class="service-bg" style="background-image: url('assets/services/corporate.jpg')"></div>
-                    <div class="service-content">
-                        <span class="service-number">01</span>
-                        <h3 class="service-name">Corporate Films</h3>
-                        <p class="service-desc">Professional storytelling that elevates your brand identity and corporate communication.</p>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
+            <div class="service-item" data-bg="corporate.jpg">
+                <div class="service-bg" style="background-image: url('assets/services/corporate.jpg')"></div>
+                <div class="service-content">
+                    <span class="service-number">01</span>
+                    <h3 class="service-name">Corporate Films</h3>
+                    <p class="service-desc">Professional storytelling that elevates your brand identity and corporate communication.</p>
                 </div>
-            </a>
+                <div class="service-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </div>
 
-            <a href="music-videos.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
-                <div class="service-item" data-bg="music-videos.jpg">
-                    <div class="service-bg" style="background-image: url('assets/services/music-videos.jpg')"></div>
-                    <div class="service-content">
-                        <span class="service-number">02</span>
-                        <h3 class="service-name">Music Videos</h3>
-                        <p class="service-desc">Visually stunning cinematic experiences that bring musical vision to life.</p>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
+            <div class="service-item" data-bg="music-videos.jpg">
+                <div class="service-bg" style="background-image: url('assets/services/music-videos.jpg')"></div>
+                <div class="service-content">
+                    <span class="service-number">02</span>
+                    <h3 class="service-name">Music Videos</h3>
+                    <p class="service-desc">Visually stunning cinematic experiences that bring musical vision to life.</p>
                 </div>
-            </a>
+                <div class="service-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </div>
 
-            <a href="fashion-commercial.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
-                <div class="service-item" data-bg="fashion.jpg">
-                    <div class="service-bg" style="background-image: url('assets/services/fashion.jpg')"></div>
-                    <div class="service-content">
-                        <span class="service-number">03</span>
-                        <h3 class="service-name">Fashion & Commercial</h3>
-                        <p class="service-desc">High-end visual marketing campaigns that capture style and influence.</p>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
+            <div class="service-item" data-bg="fashion.jpg">
+                <div class="service-bg" style="background-image: url('assets/services/fashion.jpg')"></div>
+                <div class="service-content">
+                    <span class="service-number">03</span>
+                    <h3 class="service-name">Fashion & Commercial</h3>
+                    <p class="service-desc">High-end visual marketing campaigns that capture style and influence.</p>
                 </div>
-            </a>
+                <div class="service-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </div>
 
-            <a href="social-media-content.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
-                <div class="service-item" data-bg="social media.jpg">
-                    <div class="service-bg" style="background-image: url('assets/services/social media.jpg')"></div>
-                    <div class="service-content">
-                        <span class="service-number">04</span>
-                        <h3 class="service-name">Social Media Content</h3>
-                        <p class="service-desc">Engaging, scroll-stopping reels and shorts designed for digital growth.</p>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
+            <div class="service-item" data-bg="social media.jpg">
+                <div class="service-bg" style="background-image: url('assets/services/social media.jpg')"></div>
+                <div class="service-content">
+                    <span class="service-number">04</span>
+                    <h3 class="service-name">Social Media Content</h3>
+                    <p class="service-desc">Engaging, scroll-stopping reels and shorts designed for digital growth.</p>
                 </div>
-            </a>
+                <div class="service-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </div>
 
-            <a href="podcast-production.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
-                <div class="service-item" data-bg="podcast.jpg">
-                    <div class="service-bg" style="background-image: url('assets/services/podcast.jpg')"></div>
-                    <div class="service-content">
-                        <span class="service-number">05</span>
-                        <h3 class="service-name">Podcast Production</h3>
-                        <p class="service-desc">Multi-cam recording and professional post-production for audio-visual podcasts.</p>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
+            <div class="service-item" data-bg="podcast.jpg">
+                <div class="service-bg" style="background-image: url('assets/services/podcast.jpg')"></div>
+                <div class="service-content">
+                    <span class="service-number">05</span>
+                    <h3 class="service-name">Podcast Production</h3>
+                    <p class="service-desc">Multi-cam recording and professional post-production for audio-visual podcasts.</p>
                 </div>
-            </a>
+                <div class="service-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </div>
 
-            <a href="event-coverage.html" class="service-item-link" style="text-decoration: none; display: block; color: inherit;">
-                <div class="service-item" data-bg="events.jpg">
-                    <div class="service-bg" style="background-image: url('assets/services/events.jpg')"></div>
-                    <div class="service-content">
-                        <span class="service-number">06</span>
-                        <h3 class="service-name">Event Coverage</h3>
-                        <p class="service-desc">Dynamic documentation of live events, conferences, and exhibitions.</p>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </div>
+            <div class="service-item" data-bg="events.jpg">
+                <div class="service-bg" style="background-image: url('assets/services/events.jpg')"></div>
+                <div class="service-content">
+                    <span class="service-number">06</span>
+                    <h3 class="service-name">Event Coverage</h3>
+                    <p class="service-desc">Dynamic documentation of live events, conferences, and exhibitions.</p>
                 </div>
-            </a>
+                <div class="service-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -530,7 +584,7 @@
                         <a href="#home" class="active">HOME</a>
                         <a href="#">PROJECTS</a>
                         <a href="#">PROJECTS SIMPLIFIED</a>
-                        <a href="about.html">ABOUT</a>
+                        <a href="#">ABOUT</a>
                         <a href="#">SERVICES</a>
                         <a href="#">CONTACT</a>
                     </div>

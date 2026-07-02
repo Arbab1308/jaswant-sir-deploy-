@@ -144,8 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function initScrollAnimations() {
     // 1. HERO PARALLAX
     const heroSection = document.querySelector(".hero-section");
-    const heroBg = document.querySelector(".hero-image-bg");
-    const heroContent = document.querySelector(".hero-content-center");
+    const heroBg = document.querySelector(".hero-image-bg, .hero-video-bg");
+    const heroContent = document.querySelector(".hero-content-center, .hero-content-left");
 
     if (heroSection && heroBg && heroContent) {
       // Background scrolls slower (moves down slightly relative to container)
@@ -1084,5 +1084,194 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       );
     });
+  })();
+
+  // ─── HERO SERVICES SHOWCASE TICKER ───
+  (function initHeroShowcase() {
+    const items = document.querySelectorAll(".hero-services-showcase .ticker-item");
+    if (items.length === 0) return;
+    
+    let currentIndex = 0;
+    
+    // Set initial active item
+    items[currentIndex].classList.add("active");
+    
+    setInterval(() => {
+      const prevIndex = currentIndex;
+      currentIndex = (currentIndex + 1) % items.length;
+      
+      // Mark previous item as exiting
+      items[prevIndex].classList.remove("active");
+      items[prevIndex].classList.add("exit");
+      
+      // Mark current item as active
+      items[currentIndex].classList.remove("exit");
+      items[currentIndex].classList.add("active");
+      
+      // Clean up exit class after transition completes
+      setTimeout(() => {
+        items[prevIndex].classList.remove("exit");
+      }, 500);
+    }, 2800);
+  })();
+
+  // ─── HERO TEXT MASK REVEAL ANIMATION ───
+  (function initHeroReveal() {
+    const tagline = document.querySelector(".hero-tagline");
+    const title = document.querySelector(".hero-main-title");
+    const subtitle = document.querySelector(".hero-subtitle");
+    const cta = document.querySelector(".hero-cta-btn");
+    
+    if (!title) return;
+    
+    // Set initial state
+    gsap.set([tagline, title, subtitle, cta], { opacity: 0 });
+    
+    // Create a GSAP timeline for page load
+    const tl = gsap.timeline({ delay: 0.15 });
+    
+    // 1. Reveal Tagline
+    if (tagline) {
+      tl.fromTo(tagline, 
+        { 
+          y: -20, 
+          opacity: 0, 
+          clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+          webkitClipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)"
+        },
+        { 
+          y: 0, 
+          opacity: 1, 
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          webkitClipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          duration: 0.8,
+          ease: "power3.out"
+        }
+      );
+    }
+    
+    // 2. Reveal Title (with clip path mask)
+    tl.fromTo(title,
+      { 
+        y: -40, 
+        opacity: 0, 
+        clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+        webkitClipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)"
+      },
+      { 
+        y: 0, 
+        opacity: 1, 
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        webkitClipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+        duration: 1.2,
+        ease: "power4.out"
+      },
+      "-=0.55"
+    );
+    
+    // 3. Reveal Subtitle
+    if (subtitle) {
+      tl.fromTo(subtitle,
+        { 
+          y: -20, 
+          opacity: 0, 
+          clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+          webkitClipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)"
+        },
+        { 
+          y: 0, 
+          opacity: 1, 
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          webkitClipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+          duration: 1.0,
+          ease: "power3.out"
+        },
+        "-=0.75"
+      );
+    }
+    
+    // 4. Reveal CTA Button
+    if (cta) {
+      tl.fromTo(cta,
+        { 
+          y: -15, 
+          opacity: 0 
+        },
+        { 
+          y: 0, 
+          opacity: 1,
+          duration: 0.8,
+          ease: "back.out(1.2)"
+        },
+        "-=0.65"
+      );
+    }
+  })();
+
+  // ─── PORTFOLIO VIDEO LIGHTBOX MODAL ───
+  (function initVideoLightbox() {
+    // 1. Create lightbox HTML dynamically
+    const lightboxEl = document.createElement("div");
+    lightboxEl.className = "video-lightbox";
+    lightboxEl.id = "videoLightbox";
+    lightboxEl.innerHTML = `
+      <div class="lightbox-backdrop"></div>
+      <div class="lightbox-content">
+        <div class="lightbox-close">&times;</div>
+        <div class="lightbox-video-wrapper"></div>
+      </div>
+    `;
+    document.body.appendChild(lightboxEl);
+
+    const backdrop = lightboxEl.querySelector(".lightbox-backdrop");
+    const closeBtn = lightboxEl.querySelector(".lightbox-close");
+    const videoWrapper = lightboxEl.querySelector(".lightbox-video-wrapper");
+
+    // Function to open lightbox
+    function openLightbox(videoType, src) {
+      let embedUrl = "";
+      if (videoType === "youtube") {
+        embedUrl = `https://www.youtube.com/embed/${src}?autoplay=1&controls=1&rel=0&modestbranding=1`;
+      } else if (videoType === "vimeo") {
+        // Extract raw vimeo ID or link
+        const vimeoId = src.match(/video\/(\d+)/)?.[1] || src;
+        embedUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&controls=1`;
+      }
+
+      videoWrapper.innerHTML = `
+        <iframe src="${embedUrl}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      `;
+      lightboxEl.classList.add("active");
+      document.body.style.overflow = "hidden"; // disable page scroll
+    }
+
+    // Function to close lightbox
+    function closeLightbox() {
+      lightboxEl.classList.remove("active");
+      document.body.style.overflow = ""; // restore page scroll
+      // Remove iframe to stop video playback immediately
+      setTimeout(() => {
+        videoWrapper.innerHTML = "";
+      }, 400);
+    }
+
+    // Bind click events on portfolio cards
+    const cards = document.querySelectorAll(".portfolio-card");
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const ytId = card.getAttribute("data-video-id");
+        const vimeoSrc = card.getAttribute("data-vimeo-src");
+
+        if (ytId) {
+          openLightbox("youtube", ytId);
+        } else if (vimeoSrc) {
+          openLightbox("vimeo", vimeoSrc);
+        }
+      });
+    });
+
+    // Close triggers
+    closeBtn.addEventListener("click", closeLightbox);
+    backdrop.addEventListener("click", closeLightbox);
   })();
 });
