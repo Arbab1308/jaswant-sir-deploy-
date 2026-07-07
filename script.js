@@ -125,17 +125,31 @@ document.addEventListener("DOMContentLoaded", () => {
       lastScrollY = currentScrollY;
     }
 
+    let ticking = false;
     window.addEventListener(
       "scroll",
       () => {
-        handleNavScroll(window.scrollY || window.pageYOffset || 0);
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            handleNavScroll(window.scrollY || window.pageYOffset || 0);
+            ticking = false;
+          });
+          ticking = true;
+        }
       },
       { passive: true }
     );
 
     if (lenis) {
+      let lenisTicking = false;
       lenis.on("scroll", (e) => {
-        handleNavScroll(e.scroll || window.scrollY || 0);
+        if (!lenisTicking) {
+          window.requestAnimationFrame(() => {
+            handleNavScroll(e.scroll || window.scrollY || 0);
+            lenisTicking = false;
+          });
+          lenisTicking = true;
+        }
       });
     }
   })();

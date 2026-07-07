@@ -3348,13 +3348,13 @@ body {
   gap: 15px;
 }
 
-.link-column h4 {
+.link-column h3 {
   font-family: var(--font-heading);
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
-.link-column h4.mt-4 {
+.link-column h3.mt-4 {
   margin-top: 30px;
 }
 
