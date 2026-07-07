@@ -1,0 +1,39 @@
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Default expiry time
+    ExpiresDefault "access plus 1 month"
+    
+    # HTML files (always check for fresh copy)
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # CSS and JS (1 year)
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Images and Media (1 year)
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 year"
+    
+    # Web Fonts (1 year)
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # HTML files
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=0, must-revalidate"
+    </FilesMatch>
+    
+    # Assets, CSS, JS, Media
+    <FilesMatch "\.(css|js|webp|png|jpg|jpeg|gif|ico|svg|mp4|woff|woff2|ttf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>

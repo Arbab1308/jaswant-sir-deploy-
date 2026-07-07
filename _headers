@@ -1,0 +1,19 @@
+# Common security headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer-when-downgrade
+
+# Cache HTML files for 0 seconds (always check for updates)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Cache assets for 1 year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache compiled stylesheets and scripts for 1 year
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
