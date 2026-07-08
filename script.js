@@ -156,12 +156,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ─── SCROLL ANIMATIONS ───
   function initScrollAnimations() {
+    const isMobile = window.innerWidth <= 768;
+
     // 1. HERO PARALLAX
     const heroSection = document.querySelector(".hero-section");
     const heroBg = document.querySelector(".hero-image-bg, .hero-video-bg");
     const heroContent = document.querySelector(".hero-content-center, .hero-content-left");
 
-    if (heroSection && heroBg && heroContent) {
+    if (heroSection && heroBg && heroContent && !isMobile) {
       // Background scrolls slower (moves down slightly relative to container)
       gsap.to(heroBg, {
         yPercent: 15,
@@ -204,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. FOUNDER PARALLAX — image shifts vertically as you scroll
     const founderWrap = document.querySelector(".founder-parallax-wrap");
-    if (founderWrap) {
+    if (founderWrap && !isMobile) {
       gsap.fromTo(
         ".founder-parallax-wrap",
         {
@@ -225,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 4. PORTFOLIO PARALLAX
     const portfolioImg = document.querySelector(".portfolio-bg-img");
-    if (portfolioImg) {
+    if (portfolioImg && !isMobile) {
       gsap.fromTo(
         ".portfolio-bg-img",
         {
@@ -242,6 +244,22 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         },
       );
+    }
+
+    // 4b. PORTFOLIO TRANSITION TEXT FADE IN
+    const transitionContainer = document.querySelector(".transition-text-container");
+    if (transitionContainer) {
+      gsap.to(".transition-text-container", {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".portfolio-transition-text",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
     }
 
     // 5. ABOUT FOUNDER HERO PARALLAX (Enabled)
