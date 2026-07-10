@@ -55,11 +55,11 @@
 
             <div class="nav-links">
                 <a href="#home" class="nav-link active">Home</a>
-                <a href="#" class="nav-link">Projects</a>
-                <a href="#" class="nav-link">Albums</a>
-                <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link">Services</a>
-                <a href="#" class="nav-link">Blogs</a>
+                <a href="#portfolio" class="nav-link">Projects</a>
+                <a href="about.html#albums" class="nav-link">Albums</a>
+                <a href="about.html" class="nav-link">Founder</a>
+                <a href="about-agency.html" class="nav-link">Agency</a>
+                <a href="#services" class="nav-link">Services</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
 
@@ -319,7 +319,7 @@
             <span class="founder-tag">FOUNDER</span>
             <h2 class="founder-name">JASWANT <br><span>KUMAR</span></h2>
             <p class="founder-bio">Visual storyteller specializing in cinematography, video editing, and VFX. I turn ideas into visuals that connect and inspire.</p>
-            <a href="#" class="founder-cta">About Me &rarr;</a>
+            <a href="about.html" class="founder-cta">About Me &rarr;</a>
         </div>
         <div class="founder-scroll-indicator">
             <span>Scroll Down</span>
@@ -337,7 +337,7 @@
     </section>
 
     <!-- Portfolio Intro Section -->
-    <section class="portfolio-intro">
+    <section class="portfolio-intro" id="portfolio">
         <div class="portfolio-bg-wrapper">
             <img class="portfolio-bg-img" src="assets/about.webp" alt="Portfolio Background" width="1024" height="683">
             <div class="portfolio-bg-overlay"></div>
@@ -596,84 +596,96 @@
     </section>
 
     <!-- ─── SERVICES SECTION ─── -->
-    <section class="services-section">
+    <section class="services-section" id="services">
         <div class="services-header">
             <h2 class="services-title">OUR <span>SERVICES</span></h2>
             <p class="services-subtitle">Comprehensive video production and creative solutions tailored for your brand.</p>
         </div>
 
         <div class="services-list">
-            <div class="service-item" data-bg="corporate.jpg">
-                <div class="service-bg" style="background-image: url('assets/services/corporate.webp')"></div>
-                <div class="service-content">
-                    <span class="service-number">01</span>
-                    <h3 class="service-name">Corporate Films</h3>
-                    <p class="service-desc">Professional storytelling that elevates your brand identity and corporate communication.</p>
+            <a href="corporate-films.html" class="service-item-link">
+                <div class="service-item" data-bg="corporate.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/corporate.webp')"></div>
+                    <div class="service-content">
+                        <span class="service-number">01</span>
+                        <h3 class="service-name">Corporate Films</h3>
+                        <p class="service-desc">Professional storytelling that elevates your brand identity and corporate communication.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
-                <div class="service-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </div>
+            </a>
 
-            <div class="service-item" data-bg="music-videos.jpg">
-                <div class="service-bg" style="background-image: url('assets/services/music-videos.webp')"></div>
-                <div class="service-content">
-                    <span class="service-number">02</span>
-                    <h3 class="service-name">Music Videos</h3>
-                    <p class="service-desc">Visually stunning cinematic experiences that bring musical vision to life.</p>
+            <a href="music-videos.html" class="service-item-link">
+                <div class="service-item" data-bg="music-videos.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/music-videos.webp')"></div>
+                    <div class="service-content">
+                        <span class="service-number">02</span>
+                        <h3 class="service-name">Music Videos</h3>
+                        <p class="service-desc">Visually stunning cinematic experiences that bring musical vision to life.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
-                <div class="service-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </div>
+            </a>
 
-            <div class="service-item" data-bg="fashion.jpg">
-                <div class="service-bg" style="background-image: url('assets/services/fashion.webp')"></div>
-                <div class="service-content">
-                    <span class="service-number">03</span>
-                    <h3 class="service-name">Fashion & Commercial</h3>
-                    <p class="service-desc">High-end visual marketing campaigns that capture style and influence.</p>
+            <a href="fashion-commercial.html" class="service-item-link">
+                <div class="service-item" data-bg="fashion.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/fashion.webp')"></div>
+                    <div class="service-content">
+                        <span class="service-number">03</span>
+                        <h3 class="service-name">Fashion & Commercial</h3>
+                        <p class="service-desc">High-end visual marketing campaigns that capture style and influence.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
-                <div class="service-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </div>
+            </a>
 
-            <div class="service-item" data-bg="social media.jpg">
-                <div class="service-bg" style="background-image: url('assets/services/social media.webp')"></div>
-                <div class="service-content">
-                    <span class="service-number">04</span>
-                    <h3 class="service-name">Social Media Content</h3>
-                    <p class="service-desc">Engaging, scroll-stopping reels and shorts designed for digital growth.</p>
+            <a href="social-media-content.html" class="service-item-link">
+                <div class="service-item" data-bg="social media.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/social media.webp')"></div>
+                    <div class="service-content">
+                        <span class="service-number">04</span>
+                        <h3 class="service-name">Social Media Content</h3>
+                        <p class="service-desc">Engaging, scroll-stopping reels and shorts designed for digital growth.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
-                <div class="service-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </div>
+            </a>
 
-            <div class="service-item" data-bg="podcast.jpg">
-                <div class="service-bg" style="background-image: url('assets/services/podcast.webp')"></div>
-                <div class="service-content">
-                    <span class="service-number">05</span>
-                    <h3 class="service-name">Podcast Production</h3>
-                    <p class="service-desc">Multi-cam recording and professional post-production for audio-visual podcasts.</p>
+            <a href="podcast-production.html" class="service-item-link">
+                <div class="service-item" data-bg="podcast.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/podcast.webp')"></div>
+                    <div class="service-content">
+                        <span class="service-number">05</span>
+                        <h3 class="service-name">Podcast Production</h3>
+                        <p class="service-desc">Multi-cam recording and professional post-production for audio-visual podcasts.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
-                <div class="service-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </div>
+            </a>
 
-            <div class="service-item" data-bg="events.jpg">
-                <div class="service-bg" style="background-image: url('assets/services/events.webp')"></div>
-                <div class="service-content">
-                    <span class="service-number">06</span>
-                    <h3 class="service-name">Event Coverage</h3>
-                    <p class="service-desc">Dynamic documentation of live events, conferences, and exhibitions.</p>
+            <a href="event-coverage.html" class="service-item-link">
+                <div class="service-item" data-bg="events.jpg">
+                    <div class="service-bg" style="background-image: url('assets/services/events.webp')"></div>
+                    <div class="service-content">
+                        <span class="service-number">06</span>
+                        <h3 class="service-name">Event Coverage</h3>
+                        <p class="service-desc">Dynamic documentation of live events, conferences, and exhibitions.</p>
+                    </div>
+                    <div class="service-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
                 </div>
-                <div class="service-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -712,11 +724,11 @@
                     <div class="link-column">
                         <h3>Quick Links</h3>
                         <a href="#home" class="active">HOME</a>
-                        <a href="#">PROJECTS</a>
-                        <a href="#">PROJECTS SIMPLIFIED</a>
-                        <a href="#">ABOUT</a>
-                        <a href="#">SERVICES</a>
-                        <a href="#">CONTACT</a>
+                        <a href="#portfolio">PROJECTS</a>
+                        <a href="about.html">FOUNDER</a>
+                        <a href="about-agency.html">AGENCY</a>
+                        <a href="#services">SERVICES</a>
+                        <a href="#contact">CONTACT</a>
                     </div>
                     <div class="link-column">
                         <h3>Legal</h3>

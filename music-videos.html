@@ -6,19 +6,25 @@
     <title>Music Videos | Pixel Vision Studios</title>
     <meta name="description" content="Cinematic music video production by Pixel Vision Studios. From scripting to post-production, we bring your song's story and energy to life.">
     <link rel="icon" type="image/png" href="assets/logo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap"></noscript>
+
     <link rel="stylesheet" href="style.min.css?v=3">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
     <script src="script.min.js?v=3" defer></script>
 </head>
 <body class="service-page">
+
     <nav class="top-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo" style="text-decoration:none;" aria-label="Pixel Vision Studios - Home">
+            <a href="index.html#home" class="nav-logo" style="text-decoration:none;" aria-label="Pixel Vision Studios - Home">
                 <!-- ─── WHITE PILL (CAMERA MASCOT + LOGO TEXT) ─── -->
                 <div class="nav-mascot-pill">
                     <div class="camera-mascot logo-mascot" id="cameraMascot">
@@ -30,34 +36,223 @@
                             <g class="eyes-container">
                                 <circle cx="45" cy="55" r="24" fill="white" stroke="#000000" stroke-width="2"/>
                                 <circle cx="95" cy="55" r="24" fill="white" stroke="#000000" stroke-width="2"/>
-                                <g class="pupil-wrap" id="pupilLeftWrap"><circle cx="45" cy="55" r="11" fill="black" class="pupil" id="pupilLeft"/></g>
-                                <g class="pupil-wrap" id="pupilRightWrap"><circle cx="95" cy="55" r="11" fill="black" class="pupil" id="pupilRight"/></g>
+                                <g class="pupil-wrap" id="pupilLeftWrap">
+                                    <circle cx="45" cy="55" r="11" fill="black" class="pupil" id="pupilLeft"/>
+                                </g>
+                                <g class="pupil-wrap" id="pupilRightWrap">
+                                    <circle cx="95" cy="55" r="11" fill="black" class="pupil" id="pupilRight"/>
+                                </g>
                             </g>
                         </svg>
                     </div>
                     <img src="assets/logo.webp" alt="PIXEL VISION" class="nav-logo-img" width="196" height="100">
                 </div>
             </a>
+
             <div class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="#" class="nav-link active">Services</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#portfolio" class="nav-link">Projects</a>
+                <a href="about.html#albums" class="nav-link">Albums</a>
+                <a href="about.html" class="nav-link">Founder</a>
+                <a href="about-agency.html" class="nav-link">Agency</a>
+                <a href="index.html#services" class="nav-link active">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
+
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <a href="#contact" class="get-template-btn">Contact Us</a>
         </div>
     </nav>
+
     <main>
         <section class="service-hero">
             <div class="service-hero-img-wrap">
                 <img src="assets/services/music-videos.webp" alt="Music Videos" class="service-hero-img" width="1920" height="1280">
             </div>
             <div class="service-hero-overlay"></div>
+            
             <div class="service-hero-content">
-                <h1 class="service-hero-title">Music</h1>
+                <h1 class="service-hero-title">Music Videos</h1>
                 <div class="service-hero-scroll-line"></div>
             </div>
         </section>
+
+        <!-- Top Notch Creations -->
+        <section class="portfolio-grid-section">
+            <div class="grid-header">
+                <h2 class="grid-section-title">Top Notch Works</h2>
+            </div>
+            <div class="portfolio-cards-container">
+                <!-- Card 1 -->
+                <div class="portfolio-card" data-video-id="kMaKV87JN4s">
+                    <div class="video-wrapper">
+                        <div class="yt-player" id="player-top-1"></div>
+                        <img class="video-placeholder" src="https://img.youtube.com/vi/kMaKV87JN4s/maxresdefault.jpg" loading="lazy" width="1280" height="720" alt="Video showcase placeholder for ID kMaKV87JN4s">
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="meta-prefix">/ MUSIC VIDEO</span>
+                            <span class="meta-date">FEATURED</span>
+                        </div>
+                        <h3 class="card-title">FALLING</h3>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="portfolio-card" data-vimeo-src="https://player.vimeo.com/video/1205462522?h=c621584a09&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1">
+                    <div class="video-wrapper">
+                        <iframe id="vimeo-player-top-2" class="vimeo-iframe" src="https://player.vimeo.com/video/1205462522?h=c621584a09&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="RHOMEO LANE FINAL REEL"></iframe>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="meta-prefix">/ MUSIC VIDEO</span>
+                            <span class="meta-date">FEATURED</span>
+                        </div>
+                        <h3 class="card-title">RHOMEO LANE</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Creations -->
+        <section class="portfolio-grid-section" style="padding-top: 0;">
+            <div class="grid-header">
+                <h2 class="grid-section-title">All Creations</h2>
+            </div>
+            <div class="portfolio-cards-container">
+                <!-- Card 3 -->
+                <div class="portfolio-card" data-vimeo-src="https://player.vimeo.com/video/1203556715?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1">
+                    <div class="video-wrapper">
+                        <iframe id="vimeo-player-all-1" class="vimeo-iframe" src="https://player.vimeo.com/video/1203556715?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="GOLDSTRING3"></iframe>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="meta-prefix">/ MUSIC VIDEO</span>
+                            <span class="meta-date">2024</span>
+                        </div>
+                        <h3 class="card-title">GOLDSTRING</h3>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="portfolio-card" data-vimeo-src="https://player.vimeo.com/video/1203597106?h=cd7eea6537&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1">
+                    <div class="video-wrapper">
+                        <iframe id="vimeo-player-all-2" class="vimeo-iframe" src="https://player.vimeo.com/video/1203597106?h=cd7eea6537&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="REEL 1 Travis"></iframe>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="meta-prefix">/ MUSIC VIDEO</span>
+                            <span class="meta-date">2024</span>
+                        </div>
+                        <h3 class="card-title">TRAVIS SESSION</h3>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="portfolio-card" data-vimeo-src="https://player.vimeo.com/video/1204940138?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1">
+                    <div class="video-wrapper">
+                        <iframe id="vimeo-player-all-3" class="vimeo-iframe" src="https://player.vimeo.com/video/1204940138?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="CHANDINI REEL"></iframe>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="meta-prefix">/ MUSIC VIDEO</span>
+                            <span class="meta-date">2023</span>
+                        </div>
+                        <h3 class="card-title">CHANDINI REEL</h3>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="portfolio-card" data-vimeo-src="https://player.vimeo.com/video/1203448985?h=be2fdacd0a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1">
+                    <div class="video-wrapper">
+                        <iframe id="vimeo-player-all-4" class="vimeo-iframe" src="https://player.vimeo.com/video/1203448985?h=be2fdacd0a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="PANTHER"></iframe>
+                    </div>
+                    <div class="card-info">
+                        <div class="card-meta">
+                            <span class="meta-prefix">/ MUSIC VIDEO</span>
+                            <span class="meta-date">2023</span>
+                        </div>
+                        <h3 class="card-title">PANTHER SESSION</h3>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+
+    <!-- Premium Footer Region -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-container">
+            <!-- Top CTA Box -->
+            <div class="footer-cta-box">
+                <img src="assets/logo.webp" alt="Pixel Vision Logo" class="footer-logo" width="196" height="100">
+                <h2 class="footer-headline">PIXEL VISION</h2>
+                <p class="footer-subhead">Bringing your Vision to life.</p>
+                <a href="mailto:pixelvisionproduction@gmail.com" class="footer-cta-btn">
+                    Let's Collaborate 
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Middle Info Grid -->
+            <div class="footer-info-grid">
+                <!-- Left Box -->
+                <div class="footer-info-box contact-box">
+                    <p><strong>Founder:</strong> JASWANT KUMAR</p>
+                    <p><strong>Address:</strong> House number E6, street number G03, area MVN, Gulmohar Vatika, Mahaveer nagar,Near makoons play school, Mahaveer Nagar Raipur, Chhattisgarh, 492001, India</p>
+                    <p><strong>Email:</strong> <a href="mailto:pixelvisionproduction@gmail.com" style="color: rgba(255,255,255,0.7); text-decoration: none;">pixelvisionproduction@gmail.com</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:9993694939" style="color: rgba(255,255,255,0.7); text-decoration: none;">9993694939</a>, <a href="tel:9340539898" style="color: rgba(255,255,255,0.7); text-decoration: none;">9340539898</a></p>
+                </div>
+
+                <!-- Right Box -->
+                <div class="footer-info-box links-box">
+                    <div class="link-column">
+                        <h3>Quick Links</h3>
+                        <a href="index.html#home">HOME</a>
+                        <a href="index.html#portfolio">PROJECTS</a>
+                        <a href="about.html">FOUNDER</a>
+                        <a href="about-agency.html">AGENCY</a>
+                        <a href="index.html#services" class="active">SERVICES</a>
+                        <a href="#contact">CONTACT</a>
+                    </div>
+                    <div class="link-column">
+                        <h3>Legal</h3>
+                        <a href="#">PRIVACY POLICY</a>
+                        <a href="#">TERMS & CONDITIONS</a>
+                        <a href="#">REFUND POLICY</a>
+                        
+                        <h3 class="mt-4">Social Medias</h3>
+                        <a href="#">FACEBOOK</a>
+                        <a href="#">VIMEO</a>
+                        <a href="#">TIKTOK</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Grid -->
+            <div class="footer-social-grid">
+                <a href="#" class="social-pill">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    INSTAGRAM
+                    <span class="arrow">&rarr;</span>
+                </a>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="footer-copy-bar">
+                <p>&copy; 2026 Pixel Vision Studios</p>
+                <div class="built-in">
+                    <p>Developed by Web Pro Solutions</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="page-transition-overlay"></div>
+
 </body>
 </html>
