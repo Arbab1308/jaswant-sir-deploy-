@@ -1,4 +1,4 @@
-# 🧠 Memory — Pixel Vision Studios Portfolio Website
+# 🧠 Memory — Pixel Vision Studios Portfolio 
 
 > **Repository**: `jaswant-sir-deploy-`  
 > **GitHub**: `https://github.com/Arbab1308/jaswant-sir-deploy-.git`  
