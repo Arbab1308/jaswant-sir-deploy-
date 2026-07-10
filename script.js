@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const frameCount = 125;
         const images = [];
 
-        const getFrameUrl = (idx) => `assets/hero-frames/ezgif-frame-${String(idx).padStart(3, '0')}.jpg`;
+        const getFrameUrl = (idx) => `assets/hero_frames/frame_${String(idx).padStart(3, '0')}.jpg`;
 
         // Load first frame immediately
         const firstImg = new Image();
