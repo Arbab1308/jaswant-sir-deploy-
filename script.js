@@ -158,50 +158,149 @@ document.addEventListener("DOMContentLoaded", () => {
   function initScrollAnimations() {
     const isMobile = window.innerWidth <= 768;
 
-    // 1. HERO PARALLAX
+    // 1. HERO PARALLAX & SCROLL-TELLING (DESKTOP ONLY)
     const heroSection = document.querySelector(".hero-section");
-    const heroBg = document.querySelector(".hero-image-bg, .hero-video-bg");
+    const canvas = document.getElementById("hero-canvas");
     const heroContent = document.querySelector(".hero-content-center, .hero-content-left");
+    const heroServices = document.querySelector(".hero-services-showcase");
+    const isHeroMobile = window.innerWidth <= 992;
 
-    if (heroSection && heroBg && heroContent && !isMobile) {
-      // Background scrolls slower (moves down slightly relative to container)
-      gsap.to(heroBg, {
-        yPercent: 15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroSection,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+    if (heroSection && !isHeroMobile) {
+      if (canvas) {
+        // Desktop Scroll-telling Image Sequence
+        const ctx = canvas.getContext("2d");
+        const frameCount = 125;
+        const images = [];
 
-      // Text scrolls faster (moves up slightly relative to container)
-      gsap.to(heroContent, {
-        yPercent: 20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroSection,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+        const getFrameUrl = (idx) => `assets/hero-frames/ezgif-frame-${String(idx).padStart(3, '0')}.jpg`;
 
-      // Hero Folding effect (Scale down and add border radius)
-      gsap.to(heroSection, {
-        scale: 0.92,
-        borderRadius: "30px",
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroSection,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-        },
-      });
+        // Load first frame immediately
+        const firstImg = new Image();
+        firstImg.src = getFrameUrl(1);
+        firstImg.onload = () => {
+          images[0] = firstImg;
+          drawFrame(1);
+        };
+
+        // Load remaining frames in background
+        for (let i = 2; i <= frameCount; i++) {
+          const img = new Image();
+          img.src = getFrameUrl(i);
+          img.onload = () => {
+            images[i - 1] = img;
+          };
+        }
+
+        function drawFrame(frameIndex) {
+          const img = images[frameIndex - 1] || firstImg;
+          if (!img || !img.complete) return;
+
+          const canvasWidth = canvas.width = window.innerWidth;
+          const canvasHeight = canvas.height = window.innerHeight;
+
+          const imgRatio = img.width / img.height;
+          const canvasRatio = canvasWidth / canvasHeight;
+
+          let drawWidth, drawHeight, offsetX, offsetY;
+
+          if (canvasRatio > imgRatio) {
+            drawWidth = canvasWidth;
+            drawHeight = canvasWidth / imgRatio;
+            offsetX = 0;
+            offsetY = (canvasHeight - drawHeight) / 2;
+          } else {
+            drawWidth = canvasHeight * imgRatio;
+            drawHeight = canvasHeight;
+            offsetX = (canvasWidth - drawWidth) / 2;
+            offsetY = 0;
+          }
+
+          ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+          ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+        }
+
+        // Unified ScrollTrigger for folding & scroll-telling
+        let triggerInstance = null;
+        const mainAnim = gsap.to(heroSection, {
+          scale: 0.92,
+          borderRadius: "30px",
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroSection,
+            start: "top top",
+            end: "+=120%",
+            scrub: true,
+            pin: true,
+            anticipatePin: 1,
+            onUpdate: self => {
+              const frameIndex = Math.max(1, Math.min(frameCount, Math.floor(self.progress * (frameCount - 1)) + 1));
+              drawFrame(frameIndex);
+            }
+          }
+        });
+        triggerInstance = mainAnim.scrollTrigger;
+
+        // Fade out text content
+        if (heroContent || heroServices) {
+          gsap.to([heroContent, heroServices].filter(Boolean), {
+            opacity: 0,
+            y: -50,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroSection,
+              start: "top top",
+              end: "+=60%",
+              scrub: true
+            }
+          });
+        }
+
+        window.addEventListener("resize", () => {
+          const progress = triggerInstance ? triggerInstance.progress : 0;
+          const frameIndex = Math.max(1, Math.min(frameCount, Math.floor(progress * (frameCount - 1)) + 1));
+          drawFrame(frameIndex);
+        });
+      } else {
+        // Fallback for pages that have hero section without the canvas
+        const heroBg = document.querySelector(".hero-image-bg, .hero-video-bg");
+        if (heroBg && heroContent) {
+          gsap.to(heroBg, {
+            yPercent: 15,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroSection,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.to(heroContent, {
+            yPercent: 20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroSection,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.to(heroSection, {
+            scale: 0.92,
+            borderRadius: "30px",
+            ease: "none",
+            scrollTrigger: {
+              trigger: heroSection,
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+              pin: true,
+              pinSpacing: false,
+            },
+          });
+        }
+      }
     }
 
     // 3. FOUNDER PARALLAX — image shifts vertically as you scroll

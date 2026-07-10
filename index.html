@@ -72,10 +72,11 @@
     </nav>
 
     <section class="hero-section" id="home">
-        <video class="hero-video-bg" autoplay muted loop playsinline fetchpriority="high">
+        <video class="hero-video-bg mobile-only" autoplay muted loop playsinline fetchpriority="high">
             <source src="assets/horizontal.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <canvas id="hero-canvas" class="desktop-only"></canvas>
         <div class="hero-overlay-gradient"></div>
         <div class="hero-content-left">
             <div class="hero-tagline">
